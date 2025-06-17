@@ -369,11 +369,166 @@
 </div>
 
 <!-- Chatbot -->
-<div id="chatbot" onclick="handleChatbotClick()">
+<div id="chatbot" onclick="toggleChat()">
   💬 <span id="chatbot-text">Besoin de renseignements ?</span>
 </div>
 
+<!-- Panneau de chat -->
+<div id="chat-panel">
+  <div class="chat-header">
+    <span onclick="toggleChat()" style="float:right; cursor:pointer;">✖</span>
+    <strong>CV Bot</strong>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <!-- Messages apparaîtront ici -->
+  </div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Posez votre question..." onkeypress="handleKeyPress(event)">
+  </div>
+</div>
+
+<style>
+  #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #27ae60;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  #chatbot:hover {
+    background-color: #219150;
+  }
+
+  #chat-panel {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .chat-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .chat-body {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+    height: 300px;
+  }
+
+  .chat-input input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    outline: none;
+  }
+
+  .message {
+    margin: 8px 0;
+    max-width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    clear: both;
+  }
+
+  .user-message {
+    background-color: #d1ecf1;
+    float: right;
+    text-align: right;
+  }
+
+  .bot-message {
+    background-color: #f1f1f1;
+    float: left;
+    text-align: left;
+  }
+</style>
+
 <script>
+  function toggleChat() {
+    const panel = document.getElementById("chat-panel");
+    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    addMessage(message, "user");
+
+    // Réponse automatique selon les mots-clés
+    const reply = getBotReply(message);
+
+    setTimeout(() => {
+      addMessage(reply, "bot");
+    }, 500);
+
+    input.value = "";
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  }
+
+  function addMessage(text, sender) {
+    const body = document.getElementById("chat-body");
+    const msg = document.createElement("div");
+    msg.classList.add("message");
+    msg.classList.add(sender === "user" ? "user-message" : "bot-message");
+    msg.textContent = text;
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function getBotReply(question) {
+    question = question.toLowerCase();
+
+    // Mots clés pour déclencher des réponses
+    if (question.includes("email") || question.includes("contact")) {
+      return "Vous pouvez me contacter à nasreddine.mallouki@example.com ou via LinkedIn.";
+    } else if (question.includes("formations") || question.includes("formation")) {
+      return "J’ai animé plus de 150 formations certifiantes dans les domaines Python, Linux, Ansible, Azure, Fortinet, Centreon, PostgreSQL, SQL Server...";
+    } else if (question.includes("langue")) {
+      return "Je peux répondre en français et en anglais. Utilisez le bouton FR/EN ci-dessus.";
+    } else if (question.includes("disponible") || question.includes("agenda") || question.includes("calendrier")) {
+      return "Consultez mon calendrier intégré pour voir mes disponibilités ou envoyez-moi un email pour planifier une session.";
+    } else if (question.includes("python")) {
+      return "Oui ! Je suis formateur Python certifié avec plusieurs formations données : Web Scraping, Data Analysis, Django, Flask, Pandas, Numpy...";
+    } else if (question.includes("cv") || question.includes("curriculum")) {
+      return "Mon CV est disponible ici. Si vous voulez une version PDF ou Word, je peux vous la fournir.";
+    } else if (question.includes("hello") || question.includes("hi")) {
+      return "Hello! How can I assist you today?";
+    } else if (question.includes("thank you")) {
+      return "You're welcome! Let me know if you need more info.";
+    } else {
+      return "Merci pour votre question. Pour une réponse personnalisée, veuillez m’envoyer un email à nasreddine.mallouki@example.com.";
+    }
+  }
+</script>
   function handleChatbotClick() {
     const lang = document.documentElement.lang;
     if (lang === 'fr') {
