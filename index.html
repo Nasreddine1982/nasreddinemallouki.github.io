@@ -19,17 +19,34 @@
   <link rel="canonical" href="https://nasreddine1982.github.io/nasreddinemallouki.github.io/">
 
   <style>
+    :root {
+      --bg-color: #f9f9f9; 
+      --text-color: #333;
+      --header-bg: linear-gradient(to right, #27ae60, #2c3e50);
+      --card-bg: #f1f1f1;
+      --link-color: #27ae60;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --header-bg: linear-gradient(to right, #2c3e50, #1e1e1e);
+      --card-bg: #1e1e1e;
+      --link-color: #4caf50;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.75;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9; 
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
-      background: linear-gradient(to right, #27ae60, #2c3e50);
+      background: var(--header-bg);
       color: white;
       text-align: center;
       padding: 40px 20px;
@@ -37,13 +54,20 @@
       position: relative;
     }
 
-    .lang-switch {
+    .lang-switch, .theme-switch {
       position: absolute;
       top: 20px;
+    }
+
+    .lang-switch {
+      right: 70px;
+    }
+
+    .theme-switch {
       right: 20px;
     }
 
-    .lang-switch button {
+    .lang-switch button, .theme-switch button {
       padding: 6px 10px;
       margin-left: 5px;
       border: none;
@@ -55,6 +79,11 @@
 
     .lang-switch button.active {
       background-color: #27ae60;
+      color: white;
+    }
+
+    .theme-switch button {
+      background-color: #333;
       color: white;
     }
 
@@ -78,85 +107,24 @@
       margin-top: -30px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-
-    h1, h2, h3 {
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    strong {
-      color: #27ae60;
-    }
-
-    .section {
-      margin-bottom: 50px;
+      transition: background-color 0.3s;
     }
 
     .expertise-section {
-      background-color: #f1f1f1;
-      border-left: 4px solid #27ae60;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--link-color);
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
     }
 
-    .video-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-    }
-
-    .video-gallery video {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .qr-code {
-      text-align: center;
-    }
-
-    .qr-code img {
-      width: 150px;
-      height: 150px;
-    }
-
-    .documents-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .documents-section li {
-      margin: 10px 0;
-    }
-
     .documents-section a {
-      text-decoration: none;
-      color: #27ae60;
-      font-weight: bold;
-      border: 1px solid #27ae60;
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      display: inline-block;
+      color: var(--link-color);
+      border-color: var(--link-color);
     }
 
     .documents-section a:hover {
-      background-color: #27ae60;
+      background-color: var(--link-color);
       color: white;
     }
 
@@ -164,18 +132,13 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #27ae60;
+      background-color: var(--link-color);
       color: white;
       padding: 15px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       z-index: 1000;
       transition: background-color 0.3s ease;
-    }
-
-    #chatbot:hover {
-      background-color: #219150;
     }
 
     @media (max-width: 600px) {
@@ -194,6 +157,9 @@
   <div class="lang-switch">
     <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
     <button onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+  <div class="theme-switch">
+    <button id="theme-toggle">🌙</button>
   </div>
   <img src="nasreddine.jpg" alt="Photo de profil - Nasreddine Mallouki - Formateur Python, Azure, Linux" class="profile-pic">
   <h1>Nasreddine Mallouki</h1>
