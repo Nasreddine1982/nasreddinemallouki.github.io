@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<head>
   <meta charset="UTF-8" />
   <title>CV - Nasreddine Mallouki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,43 +10,26 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-VTGWFT0XYQ')
+    gtag('config', 'G-VTGWFT0XYQ');
   </script>
-
   <!-- SEO Meta Tags -->
   <meta name="description" content="CV en ligne de Nasreddine Mallouki – Formateur expert en Python, Linux, Azure, DevOps, Bases de données, Monitoring (Centreon), Sécurité réseau (Fortinet), ERP Odoo & Coupa">
   <meta name="keywords" content="formateur python, formateur linux, azure dp-203, centreon, fortinet, odoo, sql server, postgresql, devops, monitoring, sécurité réseau, formation informatique">
   <meta name="author" content="Nasreddine Mallouki">
   <link rel="canonical" href="https://nasreddine1982.github.io/nasreddinemallouki.github.io/">
+
   <style>
-    :root {
-      --bg-color: #f9f9f9; 
-      --text-color: #333;
-      --header-bg: linear-gradient(to right, #27ae60, #2c3e50);
-      --card-bg: #f1f1f1;
-      --link-color: #27ae60;
-    }
-
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #f1f1f1;
-      --header-bg: linear-gradient(to right, #2c3e50, #1e1e1e);
-      --card-bg: #1e1e1e;
-      --link-color: #4caf50;
-    }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.75;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+      background-color: #f9f9f9; 
+      color: #333;
     }
 
     header {
-      background: var(--header-bg);
+      background: linear-gradient(to right, #27ae60, #2c3e50);
       color: white;
       text-align: center;
       padding: 40px 20px;
@@ -55,20 +37,13 @@
       position: relative;
     }
 
-    .lang-switch, .theme-switch {
+    .lang-switch {
       position: absolute;
       top: 20px;
-    }
-
-    .lang-switch {
-      right: 70px;
-    }
-
-    .theme-switch {
       right: 20px;
     }
 
-    .lang-switch button, .theme-switch button {
+    .lang-switch button {
       padding: 6px 10px;
       margin-left: 5px;
       border: none;
@@ -80,11 +55,6 @@
 
     .lang-switch button.active {
       background-color: #27ae60;
-      color: white;
-    }
-
-    .theme-switch button {
-      background-color: #333;
       color: white;
     }
 
@@ -108,24 +78,85 @@
       margin-top: -30px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      transition: background-color 0.3s;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: #27ae60;
+    }
+
+    .section {
+      margin-bottom: 50px;
     }
 
     .expertise-section {
-      background-color: var(--card-bg);
-      border-left: 4px solid var(--link-color);
+      background-color: #f1f1f1;
+      border-left: 4px solid #27ae60;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
     }
 
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .video-gallery video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .qr-code {
+      text-align: center;
+    }
+
+    .qr-code img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .documents-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .documents-section li {
+      margin: 10px 0;
+    }
+
     .documents-section a {
-      color: var(--link-color);
-      border-color: var(--link-color);
+      text-decoration: none;
+      color: #27ae60;
+      font-weight: bold;
+      border: 1px solid #27ae60;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
 
     .documents-section a:hover {
-      background-color: var(--link-color);
+      background-color: #27ae60;
       color: white;
     }
 
@@ -133,13 +164,18 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: var(--link-color);
+      background-color: #27ae60;
       color: white;
       padding: 15px;
       border-radius: 10px;
       cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       z-index: 1000;
       transition: background-color 0.3s ease;
+    }
+
+    #chatbot:hover {
+      background-color: #219150;
     }
 
     @media (max-width: 600px) {
@@ -159,7 +195,6 @@
     <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
     <button onclick="setLang('en')" id="btn-en">EN</button>
   </div>
-
   <img src="nasreddine.jpg" alt="Photo de profil - Nasreddine Mallouki - Formateur Python, Azure, Linux" class="profile-pic">
   <h1>Nasreddine Mallouki</h1>
   <p id="role">Formateur Professionnel | Expert en Réseaux, Cloud & Développement</p>
@@ -342,10 +377,6 @@
   <div class="section">
     <h2 id="videos-title">VIDÉOS DES SESSIONS DE FORMATION</h2>
     <div class="video-gallery">
-      <video controls>
-        <source src="web_video_9800.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
       <video controls>
         <source src="web_video.mp4" type="video/mp4">
         Votre navigateur ne supporte pas cette balise vidéo.
@@ -546,7 +577,6 @@
       alert("You can contact me by email at malloukinasreddine@gmai.com or via LinkedIn.");
     }
   }
-
   function setLang(lang) {
     document.documentElement.setAttribute("lang", lang);
     const fr = {
