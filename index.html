@@ -484,30 +484,6 @@
   }
 </style>
 <script>
-    // Gestion du thème clair/sombre
-  const themeToggle = document.getElementById("theme-toggle");
-  const body = document.body;
-
-  themeToggle.addEventListener("click", () => {
-    body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-      themeToggle.textContent = "☀️";
-      localStorage.setItem("theme", "dark");
-    } else {
-      themeToggle.textContent = "🌙";
-      localStorage.setItem("theme", "light");
-    }
-  });
-
-  // Charger le thème sauvegardé
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    if (savedTheme === "dark") {
-      body.classList.add("dark");
-      themeToggle.textContent = "☀️";
-    }
-  });
   function toggleChat() {
     const panel = document.getElementById("chat-panel");
     panel.style.display = panel.style.display === "flex" ? "none" : "flex";
@@ -571,6 +547,30 @@
       alert("You can contact me by email at malloukinasreddine@gmai.com or via LinkedIn.");
     }
   }
+     // Gestion du thème clair/sombre
+  const themeToggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      themeToggle.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      themeToggle.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  // Charger le thème sauvegardé
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    if (savedTheme === "dark") {
+      body.classList.add("dark");
+      themeToggle.textContent = "☀️";
+    }
+  });
   function setLang(lang) {
     document.documentElement.setAttribute("lang", lang);
     const fr = {
