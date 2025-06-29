@@ -16,9 +16,11 @@
   <meta name="description" content="CV en ligne de Nasreddine Mallouki – Formateur expert en Python, Linux, Azure, DevOps, Bases de données, Monitoring (Centreon), Sécurité réseau (Fortinet), ERP Odoo & Coupa">
   <meta name="keywords" content="formateur python, formateur linux, azure dp-203, centreon, fortinet, odoo, sql server, postgresql, devops, monitoring, sécurité réseau, formation informatique">
   <meta name="author" content="Nasreddine Mallouki">
-  <link rel="canonical" href="https://nasreddine1982.github.io/nasreddinemallouki.github.io/">
-
+  <link rel="canonical" href=" https://nasreddine1982.github.io/nasreddinemallouki.github.io/ ">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.75;
@@ -26,8 +28,8 @@
       padding: 0;
       background-color: #f9f9f9; 
       color: #333;
+      display: flex;
     }
-
     header {
       background: linear-gradient(to right, #27ae60, #2c3e50);
       color: white;
@@ -36,13 +38,11 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       position: relative;
     }
-
     .lang-switch {
       position: absolute;
       top: 20px;
       right: 20px;
     }
-
     .lang-switch button {
       padding: 6px 10px;
       margin-left: 5px;
@@ -52,12 +52,10 @@
       border-radius: 5px;
       font-weight: bold;
     }
-
     .lang-switch button.active {
       background-color: #27ae60;
       color: white;
     }
-
     .profile-pic {
       width: 150px;
       height: 150px;
@@ -67,7 +65,45 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       margin-bottom: 15px;
     }
-
+    .sidebar {
+      width: 220px;
+      background-color: #ffffff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+      padding-top: 20px;
+      border-right: 1px solid #ddd;
+    }
+    .sidebar h3 {
+      margin-top: 0;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      color: #2c3e50;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      padding: 10px 20px;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: #27ae60;
+      font-weight: bold;
+      display: block;
+    }
+    .sidebar a:hover {
+      background-color: #f0f0f0;
+    }
+    .main-content {
+      flex-grow: 1;
+      padding-left: 240px;
+    }
     .container {
       width: 90%;
       max-width: 1100px;
@@ -79,33 +115,27 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
-
     h1, h2, h3 {
       color: #2c3e50;
       margin-bottom: 10px;
     }
-
     p {
       margin-bottom: 15px;
     }
-
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
     }
-
     li {
       margin-bottom: 8px;
     }
-
     strong {
       color: #27ae60;
     }
-
     .section {
       margin-bottom: 50px;
+      scroll-margin-top: 80px;
     }
-
     .expertise-section {
       background-color: #f1f1f1;
       border-left: 4px solid #27ae60;
@@ -113,37 +143,30 @@
       border-radius: 8px;
       margin-bottom: 30px;
     }
-
     .video-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 15px;
     }
-
     .video-gallery video {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-
     .qr-code {
       text-align: center;
     }
-
     .qr-code img {
       width: 150px;
       height: 150px;
     }
-
     .documents-section ul {
       list-style: none;
       padding: 0;
     }
-
     .documents-section li {
       margin: 10px 0;
     }
-
     .documents-section a {
       text-decoration: none;
       color: #27ae60;
@@ -154,12 +177,10 @@
       transition: all 0.3s ease;
       display: inline-block;
     }
-
     .documents-section a:hover {
       background-color: #27ae60;
       color: white;
     }
-
     #chatbot {
       position: fixed;
       bottom: 20px;
@@ -169,487 +190,530 @@
       padding: 15px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       z-index: 1000;
       transition: background-color 0.3s ease;
     }
-
     #chatbot:hover {
       background-color: #219150;
     }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 30px 10px;
+    @media (max-width: 800px) {
+      .sidebar {
+        display: none;
       }
-      .profile-pic {
-        width: 120px;
-        height: 120px;
+      .main-content {
+        padding-left: 0;
       }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="lang-switch">
-    <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
-    <button onclick="setLang('en')" id="btn-en">EN</button>
-  </div>
-  <img src="nasreddine.jpg" alt="Photo de profil - Nasreddine Mallouki - Formateur Python, Azure, Linux" class="profile-pic">
-  <h1>Nasreddine Mallouki</h1>
-  <p id="role">Formateur Professionnel | Expert en Réseaux, Cloud & Développement</p>
-</header>
-<div class="container">
-  <!-- Résumé -->
-  <div class="section">
-    <h2 id="summary-title">RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR</h2>
-    <p id="summary-text">
-      Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>
-      J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>
-      Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l’autonomie technique.
-    </p>
-  </div>
-  <!-- Sections Expertise -->
-  <div class="expertise-section">
-    <h3 id="cloud-title">☁️ Expertise en Cloud Computing</h3>
+  <nav class="sidebar">
+    <h3 id="nav-title">Navigation</h3>
     <ul>
-      <li><strong>AZURE</strong> : DP-203, AI-102, AZ-800, SC-900, AZ-140, AZ-040</li>
-      <li><strong>Autres plateformes</strong> : AWS (Redshift), GCP, OpenStack</li>
-      <li><strong>Formations données</strong> : Data Engineering, IA, Virtual Desktop, PowerShell Automation</li>
+      <li><a href="#summary" id="nav-summary">Résumé</a></li>
+      <li><a href="#expertise" id="nav-expertise">Expertise</a></li>
+      <li><a href="#trainings" id="nav-trainings">Formations Animées</a></li>
+      <li><a href="#videos" id="nav-videos">Vidéos</a></li>
+      <li><a href="#docs" id="nav-docs">Documents Utiles</a></li>
+      <li><a href="#calendar" id="nav-calendar">Calendrier</a></li>
+      <li><a href="#qrcode" id="nav-qrcode">Coordonnées</a></li>
     </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="security-title">🔐 Expertise en Sécurité Réseau</h3>
-    <ul>
-      <li><strong>FORTINET</strong> : FortiWeb, FortiManager, FortiAnalyser</li>
-      <li><strong>Technologies</strong> : SD-WAN, Firewalling, AAA, Radius, Tacacs+</li>
-      <li><strong>Formations données</strong> : NSE, Wireless Security, Mobility</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="monitoring-title">📊 Expertise en Monitoring</h3>
-    <ul>
-      <li><strong>Outils</strong> : Centreon (plus de 10 formations), ELK Stack, Prometheus</li>
-      <li><strong>Formations données</strong> : Administration, Configuration, Analyse</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="erp-title">⚙️ Expertise en ERP & GMAO</h3>
-    <ul>
-      <li><strong>ERP</strong> : Odoo (certifié), Coupa P2P, J@de, Maximo</li>
-      <li><strong>Domaines couverts</strong> : Achat, Maintenance préventive/corrective, Catalogues industriels</li>
-      <li><strong>Formations données</strong> : Création Marketplace, Gestion actifs, Upload CSV</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="python-title">🐍 Expertise en Python</h3>
-    <ul>
-      <li><strong>Modules enseignés</strong> : Web Scraping, Data Analysis, Pandas, NumPy, Seaborn, Matplotlib, Beautifulsoup</li>
-      <li><strong>Outils</strong> : Flask, Django, Tkinter, Pytest, Requests</li>
-      <li><strong>Publics visés</strong> : Ingénieurs, Analystes, Développeurs</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="linux-title">🐧 Expertise en Systèmes Linux</h3>
-    <ul>
-      <li><strong>Compétences</strong> : Administration, Scripting, Networking, Bridging, KVM</li>
-      <li><strong>Outils</strong> : Red Hat RH134, Ansible, Shell, Vagrant, GNS3</li>
-      <li><strong>Formations données</strong> : LPI CI/II, Linux Foundation, Automatisation</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="devops-title">🛠️ Expertise en DevOps</h3>
-    <ul>
-      <li><strong>Outils</strong> : Ansible, PowerShell, Docker, VMWare, Windows Server</li>
-      <li><strong>Formations données</strong> : Automatisation, Infrastructure as Code, CI/CD</li>
-    </ul>
-  </div>
-  <div class="expertise-section">
-    <h3 id="db-title">💾 Expertise en Bases de Données</h3>
-    <ul>
-      <li><strong>PostgreSQL</strong> : administration avancée, clustering, sauvegarde/restauration</li>
-      <li><strong>SQL Server</strong> : configuration, sécurité, requêtes complexes</li>
-      <li><strong>MySQL / MariaDB</strong> : installation, tuning, migration</li>
-      <li><strong>ORM</strong> : SQLAlchemy, Django ORM, Pandas</li>
-      <li><strong>Formations données</strong> : PostgreSQL, SQL Server, Data Engineering Azure</li>
-    </ul>
-  </div>
-  <!-- Formations assurées -->
-  <div class="section">
-    <h2 id="trainings-title">FORMATIONS ANIMÉES</h2>
-    <ul>
-      <li><strong>23/06/2025 - 24/06/2025 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée: Configuration et déploiement WLC Cisco Catalyst 9800 on prem et sur Azure- Access-it</li>
-       <li><strong>12/06/2025 - 15/06/2025 :</strong> Formation Ansible - Ecole DSP, France</li>
-      <li><strong>27/05/2025 - 30/05/2025 :</strong> Formation Administration Centreon - Access IT, France</li>
-      <li><strong>19/05/2025 - 22/05/2025 :</strong> Formation Développement PYTHON - Orange Tunisie</li>
-      <li><strong>01/04/2025 - 03/04/2025 :</strong> Formation FortiWeb - INPS Mali</li>
-      <li><strong>24/03/2025 - 26/03/2025 :</strong> Formation FortiManager - INPS Mali</li>
-      <li><strong>17/03/2025 - 19/03/2025 :</strong> Formation FortiAnalyser - INPS Mali</li>
-      <li><strong>04/02/2025 - 07/02/2025 :</strong> Formation Administration PostgreSQL - Ministère de la Défense Nationale</li>
-      <li><strong>27/01/2025 - 30/01/2025 :</strong> Formation «Python – Programming Fundamentals PCEP» - Linsoft</li>
-      <li><strong>22/01/2025 :</strong> Formation LOOKML – Introduction to LookML - Access-it</li>
-      <li><strong>13/01/2025 :</strong> Formation SC-900 : Security, Compliance, and Identity Fundamentals - Access-it</li>
-      <li><strong>18/12/2024 - 20/12/2024 :</strong> Formation M20764C : Administering a SQL Database Infrastructure - Access-it</li>
-      <li><strong>10/12/2024 - 13/12/2024 :</strong> Formation SC-200 : Security Operations Analyst Associate - Access-it</li>
-      <li><strong>02/12/2024 - 06/12/2024 :</strong> Formation Redhat 9 Security - Amen Banque-Tunisie</li>
-      <li><strong>25/11/2024 - 28/11/2024 :</strong> Formation SC-200 : Security Operations Analyst Associate - Access-it</li>
-      <li><strong>04/11/2024 - 12/11/2024 :</strong> Formation Administration Linux Professional Institute (LPI CI et II) - FNZ Tunisie</li>
-      <li><strong>21/10/2024 - 24/10/2024 :</strong> Formation Intelligence Artificielle pour Communication - Krochu Tunisie</li>
-      <li><strong>07/10/2024 - 10/10/2024 :</strong> Formation Fortinet SDWAN - ODDO France + Lilas Tunisie</li>
-      <li><strong>23/09/2024 - 27/09/2024 :</strong> Formation Redhat Administration RH134 - Amen Banque-Tunisie</li>
-      <li><strong>16/09/2024 - 18/09/2024 :</strong> Formation PL-100 Power Platform App Maker - Access-it</li>
-      <li><strong>06/09/2024 :</strong> Formation Google LookML - Access-it</li>
-      <li><strong>12/08/2024 - 14/08/2024 :</strong> Formation Data Warehousing AWS : AWS Redshift - Access-it</li>
-      <li><strong>25/06/2024 - 28/06/2024 :</strong> Formation Microsoft Azure AI-102 - Access-it</li>
-      <li><strong>18/06/2024 - 20/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
-      <li><strong>03/06/2024 - 05/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
-      <li><strong>23/04/2024 - 25/04/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
-      <li><strong>05/03/2024 - 08/03/2024 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services - Access-it</li>
-      <li><strong>28/02/2024 - 29/02/2024 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée - Access-it</li>
-      <li><strong>19/02/2024 - 22/02/2024 :</strong> Formation MS-500 : Administration de la sécurité Microsoft 365 - Access-it</li>
-      <li><strong>11/12/2023 - 14/12/2023 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services</li>
-      <li><strong>27/11/2023 - 28/11/2023 :</strong> Formation ELK Monitoring</li>
-      <li><strong>21/11/2023 - 24/11/2023 :</strong> Formation Az-040 Automating Administration with Powershell</li>
-      <li><strong>15/11/2023 - 17/11/2023 :</strong> Formation Monitoring Server with Centreon - Access-it</li>
-      <li><strong>30/10/2023 - 02/11/2023 :</strong> Formation Linux Administration</li>
-      <li><strong>23/10/2023 - 25/10/2023 :</strong> Formation NSE FortiNAC 7.2</li>
-      <li><strong>18/09/2023 - 22/09/2023 :</strong> Formation Linux Administration</li>
-      <li><strong>04/09/2023 - 08/09/2023 :</strong> Formation WS-011 Windows Server 2019 Administration</li>
-      <li><strong>28/08/2023 - 31/08/2023 :</strong> Formation AZ-800: Administering Windows Server Hybrid Core Infrastructure</li>
-      <li><strong>10/07/2023 - 14/07/2023 :</strong> Formation DP-203: Data Engineering on Microsoft Azure</li>
-      <li><strong>26/06/2023 - 28/06/2023 :</strong> Formation AI-900: Microsoft Azure AI Fundamentals</li>
-      <li><strong>19/06/2023 - 22/06/2023 :</strong> Formation AZ-140T00A Configuring and Operating Azure Virtual Desktop</li>
-      <li><strong>05/06/2023 - 07/06/2023 :</strong> Formation Azure and Cloud services</li>
-      <li><strong>31/05/2023 - 02/06/2023 :</strong> Formation Entry-Level-Python</li>
-      <li><strong>15/05/2023 - 19/05/2023 :</strong> Formation Python et Machine Learning</li>
-      <li><strong>08/05/2023 - 12/05/2023 :</strong> Formation Administration SQLServer 2019</li>
-      <li><strong>07/03/2023 - 10/03/2023 :</strong> Formation Fondamentaux de la Cyber sécurité & Offensive Security</li>
-      <li><strong>02/03/2023 - 03/03/2023 :</strong> Formation Perfectionnement Word & Excel</li>
-      <li><strong>22/02/2023 - 24/02/2023 :</strong> Formation Administration Postgresql</li>
-      <li><strong>01/02/2023 - 03/02/2023 :</strong> Formation Windows Server</li>
-      <li><strong>25/01/2023 - 31/01/2023 :</strong> Formation Word Excel publipostage</li>
-      <li><strong>09/01/2023 - 13/01/2023 :</strong> Formation La SUITE ELK</li>
-      <li><strong>26/12/2022 - 30/12/2022 :</strong> Formation Administration SQLServer 2019</li>
-      <li><strong>12/12/2022 - 16/12/2022 :</strong> Formation Administration Base de données Posgtresql</li>
-      <li><strong>05/12/2022 - 09/12/2022 :</strong> Formation Installation et Administration du service Web sous Linux</li>
-      <li><strong>14/11/2022 - 18/11/2022 :</strong> Formation Fonctionnalité & Services IP</li>
-      <li><strong>07/11/2022 - 11/11/2022 :</strong> Formation La SUITE ELK</li>
-      <li><strong>24/10/2022 - 27/10/2022 :</strong> Formation Python et Algorithmique</li>
-      <li><strong>17/10/2022 - 21/10/2022 :</strong> Formation DP-203: Data Engineering on Microsoft Azure</li>
-      <li><strong>06/10/2022 - 13/10/2022 :</strong> Encadrement projet Fin de Formation BDD_CGI</li>
-      <li><strong>23/09/2022 - 05/10/2022 :</strong> Formation Administration BDD SQL SERVER 2019</li>
-      <li><strong>21/09/2022 - 22/09/2022 :</strong> Formation Administration POSTGRESQL Avancée</li>
-      <li><strong>16/09/2022 - 20/09/2022 :</strong> Formation Administration POSTGRESQL</li>
-      <li><strong>05/09/2022 - 09/09/2022 :</strong> Formation NFV et SDN pour l'évolution des réseaux</li>
-      <li><strong>25/08/2022 - 30/08/2022 :</strong> Formation Langage SQL</li>
-      <li><strong>15/08/2022 - 19/08/2022 :</strong> Formation AI-102: Microsoft Azure AI Solution</li>
-      <li><strong>03/08/2022 - 10/08/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
-      <li><strong>01/08/2022 - 02/08/2022 :</strong> Formation Programmation Shell Linux</li>
-      <li><strong>25/07/2022 - 29/07/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
-      <li><strong>11/07/2022 - 14/07/2022 :</strong> Formation Infrastructure Ansible</li>
-      <li><strong>13/06/2022 - 16/06/2022 :</strong> Formation Introduction TCP/IP</li>
-      <li><strong>06/06/2022 - 10/06/2022 :</strong> Formation Framework Django</li>
-      <li><strong>09/05/2022 - 14/05/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
-      <li><strong>18/04/2022 - 22/04/2022 :</strong> Formation Evolution du réseau du transport IP</li>
-      <li><strong>04/04/2022 - 08/04/2022 :</strong> Formation Framework Flask</li>
-      <li><strong>15/03/2022 - 16/03/2022 :</strong> Formation Data Analysis et Visualisation</li>
-      <li><strong>14/03/2022 - 18/03/2022 :</strong> Formation Evolution des réseaux vers l'IMS</li>
-      <li><strong>21/02/2022 - 23/02/2022 :</strong> Formation Linux Opertaing System</li>
-      <li><strong>22/11/2021 - 26/11/2021 :</strong> Formation C#</li>
-      <li><strong>08/11/2021 - 20/11/2021 :</strong> Formation Les bases de Python</li>
-      <li><strong>22/11/2021 - 27/11/2021 :</strong> Formation Vmware</li>
-      <li><strong>11/11/2021 - 15/11/2021 :</strong> Formation Sécurité des Réseaux</li>
-      <li><strong>01/11/2021 - 06/11/2021 :</strong> Formation Testing avec Python</li>
-      <li><strong>10/05/2021 - 12/05/2021 :</strong> Formation QEMU/VIRT-MANAGER/KVM</li>
-      <li><strong>04/10/2021 - 07/10/2021 :</strong> Formation Initiation scripting shell</li>
-      <li><strong>12/04/2021 - 17/04/2021 :</strong> Formation Odoo 15 server configuration</li>
-      <li><strong>01/03/2021 - 05/03/2021 :</strong> Formation Les fondamentaux IP MPLS</li>
-      <li><strong>20/05/2020 - 22/05/2020 :</strong> Formation utilisation solution COUPA P2P</li>
-      <li><strong>02/12/2019 - 05/12/2019 :</strong> Formation utilisation solution J@de</li>
-      <li><strong>06/05/2019 - 08/05/2019 :</strong> Formation Création Catalogues fournisseurs</li>
-      <li><strong>13/05/2019 - 15/05/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
-      <li><strong>22/04/2019 - 24/04/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
-      <li><strong>04/03/2019 - 06/04/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
-      <li><strong>18/03/2019 - 20/03/2019 :</strong> Formation Création de Catalogues Fournisseurs</li>
-      <li><strong>25/03/2019 - 27/03/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
-    </ul>
-  </div>
-  <!-- Vidéos des formations -->
-  <div class="section">
-    <h2 id="videos-title">VIDÉOS DES SESSIONS DE FORMATION</h2>
-    <div class="video-gallery">
-      <video controls>
-        <source src="web_video_9800.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-      <video controls>
-        <source src="web_video.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-      <video controls>
-        <source src="web_video_with_text.mp4" type="video/webm">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-      <video controls>
-        <source src="web_video1.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-       <video controls>
-        <source src="web_video_lookml.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-        <video controls>
-        <source src="web_video1.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
-        <video controls>
-        <source src="web_video1.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas cette balise vidéo.
-      </video>
+  </nav>
+
+  <div class="main-content">
+    <header>
+      <div class="lang-switch">
+        <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+      <img src="nasreddine.jpg" alt="Photo de profil - Nasreddine Mallouki - Formateur Python, Azure, Linux" class="profile-pic">
+      <h1>Nasreddine Mallouki</h1>
+      <p id="role">Formateur Professionnel | Expert en Réseaux, Cloud & Développement</p>
+    </header>
+    <div class="container">
+      <!-- Résumé -->
+      <div class="section" id="summary">
+        <h2 id="summary-title">RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR</h2>
+        <p id="summary-text">
+          Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>
+          J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>
+          Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l'autonomie technique.
+        </p>
+      </div>
+      <!-- Sections Expertise -->
+      <div class="section" id="expertise">
+        <h2>EXPERTISE PROFESSIONNELLE</h2>
+        <div class="expertise-section" id="cloud">
+          <h3 id="cloud-title">☁️ Expertise en Cloud Computing</h3>
+          <ul>
+            <li><strong>AZURE</strong> : DP-203, AI-102, AZ-800, SC-900, AZ-140, AZ-040</li>
+            <li><strong>Autres plateformes</strong> : AWS (Redshift), GCP, OpenStack</li>
+            <li><strong>Formations données</strong> : Data Engineering, IA, Virtual Desktop, PowerShell Automation</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="security">
+          <h3 id="security-title">🔐 Expertise en Sécurité Réseau</h3>
+          <ul>
+            <li><strong>FORTINET</strong> : FortiWeb, FortiManager, FortiAnalyser</li>
+            <li><strong>Technologies</strong> : SD-WAN, Firewalling, AAA, Radius, Tacacs+</li>
+            <li><strong>Formations données</strong> : NSE, Wireless Security, Mobility</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="monitoring">
+          <h3 id="monitoring-title">📊 Expertise en Monitoring</h3>
+          <ul>
+            <li><strong>Outils</strong> : Centreon (plus de 10 formations), ELK Stack, Prometheus</li>
+            <li><strong>Formations données</strong> : Administration, Configuration, Analyse</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="erp">
+          <h3 id="erp-title">⚙️ Expertise en ERP & GMAO</h3>
+          <ul>
+            <li><strong>ERP</strong> : Odoo (certifié), Coupa P2P, J@de, Maximo</li>
+            <li><strong>Domaines couverts</strong> : Achat, Maintenance préventive/corrective, Catalogues industriels</li>
+            <li><strong>Formations données</strong> : Création Marketplace, Gestion actifs, Upload CSV</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="python">
+          <h3 id="python-title">🐍 Expertise en Python</h3>
+          <ul>
+            <li><strong>Modules enseignés</strong> : Web Scraping, Data Analysis, Pandas, NumPy, Seaborn, Matplotlib, Beautifulsoup</li>
+            <li><strong>Outils</strong> : Flask, Django, Tkinter, Pytest, Requests</li>
+            <li><strong>Publics visés</strong> : Ingénieurs, Analystes, Développeurs</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="linux">
+          <h3 id="linux-title">🐧 Expertise en Systèmes Linux</h3>
+          <ul>
+            <li><strong>Compétences</strong> : Administration, Scripting, Networking, Bridging, KVM</li>
+            <li><strong>Outils</strong> : Red Hat RH134, Ansible, Shell, Vagrant, GNS3</li>
+            <li><strong>Formations données</strong> : LPI CI/II, Linux Foundation, Automatisation</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="devops">
+          <h3 id="devops-title">🛠️ Expertise en DevOps</h3>
+          <ul>
+            <li><strong>Outils</strong> : Ansible, PowerShell, Docker, VMWare, Windows Server</li>
+            <li><strong>Formations données</strong> : Automatisation, Infrastructure as Code, CI/CD</li>
+          </ul>
+        </div>
+        <div class="expertise-section" id="db">
+          <h3 id="db-title">💾 Expertise en Bases de Données</h3>
+          <ul>
+            <li><strong>PostgreSQL</strong> : administration avancée, clustering, sauvegarde/restauration</li>
+            <li><strong>SQL Server</strong> : configuration, sécurité, requêtes complexes</li>
+            <li><strong>MySQL / MariaDB</strong> : installation, tuning, migration</li>
+            <li><strong>ORM</strong> : SQLAlchemy, Django ORM, Pandas</li>
+            <li><strong>Formations données</strong> : PostgreSQL, SQL Server, Data Engineering Azure</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Formations assurées -->
+      <div class="section" id="trainings">
+        <h2 id="trainings-title">FORMATIONS ANIMÉES</h2>
+        <ul>
+          <li><strong>23/06/2025 - 24/06/2025 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée: Configuration et déploiement WLC Cisco Catalyst 9800 on prem et sur Azure- Access-it</li>
+           <li><strong>12/06/2025 - 15/06/2025 :</strong> Formation Ansible - Ecole DSP, France</li>
+          <li><strong>27/05/2025 - 30/05/2025 :</strong> Formation Administration Centreon - Access IT, France</li>
+          <li><strong>19/05/2025 - 22/05/2025 :</strong> Formation Développement PYTHON - Orange Tunisie</li>
+          <li><strong>01/04/2025 - 03/04/2025 :</strong> Formation FortiWeb - INPS Mali</li>
+          <li><strong>24/03/2025 - 26/03/2025 :</strong> Formation FortiManager - INPS Mali</li>
+          <li><strong>17/03/2025 - 19/03/2025 :</strong> Formation FortiAnalyser - INPS Mali</li>
+          <li><strong>04/02/2025 - 07/02/2025 :</strong> Formation Administration PostgreSQL - Ministère de la Défense Nationale</li>
+          <li><strong>27/01/2025 - 30/01/2025 :</strong> Formation «Python – Programming Fundamentals PCEP» - Linsoft</li>
+          <li><strong>22/01/2025 :</strong> Formation LOOKML – Introduction to LookML - Access-it</li>
+          <li><strong>13/01/2025 :</strong> Formation SC-900 : Security, Compliance, and Identity Fundamentals - Access-it</li>
+          <li><strong>18/12/2024 - 20/12/2024 :</strong> Formation M20764C : Administering a SQL Database Infrastructure - Access-it</li>
+          <li><strong>10/12/2024 - 13/12/2024 :</strong> Formation SC-200 : Security Operations Analyst Associate - Access-it</li>
+          <li><strong>02/12/2024 - 06/12/2024 :</strong> Formation Redhat 9 Security - Amen Banque-Tunisie</li>
+          <li><strong>25/11/2024 - 28/11/2024 :</strong> Formation SC-200 : Security Operations Analyst Associate - Access-it</li>
+          <li><strong>04/11/2024 - 12/11/2024 :</strong> Formation Administration Linux Professional Institute (LPI CI et II) - FNZ Tunisie</li>
+          <li><strong>21/10/2024 - 24/10/2024 :</strong> Formation Intelligence Artificielle pour Communication - Krochu Tunisie</li>
+          <li><strong>07/10/2024 - 10/10/2024 :</strong> Formation Fortinet SDWAN - ODDO France + Lilas Tunisie</li>
+          <li><strong>23/09/2024 - 27/09/2024 :</strong> Formation Redhat Administration RH134 - Amen Banque-Tunisie</li>
+          <li><strong>16/09/2024 - 18/09/2024 :</strong> Formation PL-100 Power Platform App Maker - Access-it</li>
+          <li><strong>06/09/2024 :</strong> Formation Google LookML - Access-it</li>
+          <li><strong>12/08/2024 - 14/08/2024 :</strong> Formation Data Warehousing AWS : AWS Redshift - Access-it</li>
+          <li><strong>25/06/2024 - 28/06/2024 :</strong> Formation Microsoft Azure AI-102 - Access-it</li>
+          <li><strong>18/06/2024 - 20/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
+          <li><strong>03/06/2024 - 05/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
+          <li><strong>23/04/2024 - 25/04/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it</li>
+          <li><strong>05/03/2024 - 08/03/2024 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services - Access-it</li>
+          <li><strong>28/02/2024 - 29/02/2024 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée - Access-it</li>
+          <li><strong>19/02/2024 - 22/02/2024 :</strong> Formation MS-500 : Administration de la sécurité Microsoft 365 - Access-it</li>
+          <li><strong>11/12/2023 - 14/12/2023 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services</li>
+          <li><strong>27/11/2023 - 28/11/2023 :</strong> Formation ELK Monitoring</li>
+          <li><strong>21/11/2023 - 24/11/2023 :</strong> Formation Az-040 Automating Administration with Powershell</li>
+          <li><strong>15/11/2023 - 17/11/2023 :</strong> Formation Monitoring Server with Centreon - Access-it</li>
+          <li><strong>30/10/2023 - 02/11/2023 :</strong> Formation Linux Administration</li>
+          <li><strong>23/10/2023 - 25/10/2023 :</strong> Formation NSE FortiNAC 7.2</li>
+          <li><strong>18/09/2023 - 22/09/2023 :</strong> Formation Linux Administration</li>
+          <li><strong>04/09/2023 - 08/09/2023 :</strong> Formation WS-011 Windows Server 2019 Administration</li>
+          <li><strong>28/08/2023 - 31/08/2023 :</strong> Formation AZ-800: Administering Windows Server Hybrid Core Infrastructure</li>
+          <li><strong>10/07/2023 - 14/07/2023 :</strong> Formation DP-203: Data Engineering on Microsoft Azure</li>
+          <li><strong>26/06/2023 - 28/06/2023 :</strong> Formation AI-900: Microsoft Azure AI Fundamentals</li>
+          <li><strong>19/06/2023 - 22/06/2023 :</strong> Formation AZ-140T00A Configuring and Operating Azure Virtual Desktop</li>
+          <li><strong>05/06/2023 - 07/06/2023 :</strong> Formation Azure and Cloud services</li>
+          <li><strong>31/05/2023 - 02/06/2023 :</strong> Formation Entry-Level-Python</li>
+          <li><strong>15/05/2023 - 19/05/2023 :</strong> Formation Python et Machine Learning</li>
+          <li><strong>08/05/2023 - 12/05/2023 :</strong> Formation Administration SQLServer 2019</li>
+          <li><strong>07/03/2023 - 10/03/2023 :</strong> Formation Fondamentaux de la Cyber sécurité & Offensive Security</li>
+          <li><strong>02/03/2023 - 03/03/2023 :</strong> Formation Perfectionnement Word & Excel</li>
+          <li><strong>22/02/2023 - 24/02/2023 :</strong> Formation Administration Postgresql</li>
+          <li><strong>01/02/2023 - 03/02/2023 :</strong> Formation Windows Server</li>
+          <li><strong>25/01/2023 - 31/01/2023 :</strong> Formation Word Excel publipostage</li>
+          <li><strong>09/01/2023 - 13/01/2023 :</strong> Formation La SUITE ELK</li>
+          <li><strong>26/12/2022 - 30/12/2022 :</strong> Formation Administration SQLServer 2019</li>
+          <li><strong>12/12/2022 - 16/12/2022 :</strong> Formation Administration Base de données Posgtresql</li>
+          <li><strong>05/12/2022 - 09/12/2022 :</strong> Formation Installation et Administration du service Web sous Linux</li>
+          <li><strong>14/11/2022 - 18/11/2022 :</strong> Formation Fonctionnalité & Services IP</li>
+          <li><strong>07/11/2022 - 11/11/2022 :</strong> Formation La SUITE ELK</li>
+          <li><strong>24/10/2022 - 27/10/2022 :</strong> Formation Python et Algorithmique</li>
+          <li><strong>17/10/2022 - 21/10/2022 :</strong> Formation DP-203: Data Engineering on Microsoft Azure</li>
+          <li><strong>06/10/2022 - 13/10/2022 :</strong> Encadrement projet Fin de Formation BDD_CGI</li>
+          <li><strong>23/09/2022 - 05/10/2022 :</strong> Formation Administration BDD SQL SERVER 2019</li>
+          <li><strong>21/09/2022 - 22/09/2022 :</strong> Formation Administration POSTGRESQL Avancée</li>
+          <li><strong>16/09/2022 - 20/09/2022 :</strong> Formation Administration POSTGRESQL</li>
+          <li><strong>05/09/2022 - 09/09/2022 :</strong> Formation NFV et SDN pour l'évolution des réseaux</li>
+          <li><strong>25/08/2022 - 30/08/2022 :</strong> Formation Langage SQL</li>
+          <li><strong>15/08/2022 - 19/08/2022 :</strong> Formation AI-102: Microsoft Azure AI Solution</li>
+          <li><strong>03/08/2022 - 10/08/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
+          <li><strong>01/08/2022 - 02/08/2022 :</strong> Formation Programmation Shell Linux</li>
+          <li><strong>25/07/2022 - 29/07/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
+          <li><strong>11/07/2022 - 14/07/2022 :</strong> Formation Infrastructure Ansible</li>
+          <li><strong>13/06/2022 - 16/06/2022 :</strong> Formation Introduction TCP/IP</li>
+          <li><strong>06/06/2022 - 10/06/2022 :</strong> Formation Framework Django</li>
+          <li><strong>09/05/2022 - 14/05/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible</li>
+          <li><strong>18/04/2022 - 22/04/2022 :</strong> Formation Evolution du réseau du transport IP</li>
+          <li><strong>04/04/2022 - 08/04/2022 :</strong> Formation Framework Flask</li>
+          <li><strong>15/03/2022 - 16/03/2022 :</strong> Formation Data Analysis et Visualisation</li>
+          <li><strong>14/03/2022 - 18/03/2022 :</strong> Formation Evolution des réseaux vers l'IMS</li>
+          <li><strong>21/02/2022 - 23/02/2022 :</strong> Formation Linux Opertaing System</li>
+          <li><strong>22/11/2021 - 26/11/2021 :</strong> Formation C#</li>
+          <li><strong>08/11/2021 - 20/11/2021 :</strong> Formation Les bases de Python</li>
+          <li><strong>22/11/2021 - 27/11/2021 :</strong> Formation Vmware</li>
+          <li><strong>11/11/2021 - 15/11/2021 :</strong> Formation Sécurité des Réseaux</li>
+          <li><strong>01/11/2021 - 06/11/2021 :</strong> Formation Testing avec Python</li>
+          <li><strong>10/05/2021 - 12/05/2021 :</strong> Formation QEMU/VIRT-MANAGER/KVM</li>
+          <li><strong>04/10/2021 - 07/10/2021 :</strong> Formation Initiation scripting shell</li>
+          <li><strong>12/04/2021 - 17/04/2021 :</strong> Formation Odoo 15 server configuration</li>
+          <li><strong>01/03/2021 - 05/03/2021 :</strong> Formation Les fondamentaux IP MPLS</li>
+          <li><strong>20/05/2020 - 22/05/2020 :</strong> Formation utilisation solution COUPA P2P</li>
+          <li><strong>02/12/2019 - 05/12/2019 :</strong> Formation utilisation solution J@de</li>
+          <li><strong>06/05/2019 - 08/05/2019 :</strong> Formation Création Catalogues fournisseurs</li>
+          <li><strong>13/05/2019 - 15/05/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
+          <li><strong>22/04/2019 - 24/04/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
+          <li><strong>04/03/2019 - 06/04/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
+          <li><strong>18/03/2019 - 20/03/2019 :</strong> Formation Création de Catalogues Fournisseurs</li>
+          <li><strong>25/03/2019 - 27/03/2019 :</strong> Formation Reprise de données des catalogues industriels</li>
+        </ul>
+      </div>
+      <!-- Vidéos des formations -->
+      <div class="section" id="videos">
+        <h2 id="videos-title">VIDÉOS DES SESSIONS DE FORMATION</h2>
+        <div class="video-gallery">
+          <video controls>
+            <source src="web_video_9800.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video_with_text.mp4" type="video/webm">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video_lookml.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+          <video controls>
+            <source src="web_video1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas cette balise vidéo.
+          </video>
+        </div>
+      </div>
+      <!-- QR Code Contact -->
+      <div class="section qr-code" id="qrcode">
+        <h2 id="qrcode-title">MES COORDONNÉES VIA QR CODE</h2>
+        <p id="qrcode-desc">Scannez le QR Code ci-dessous pour me contacter facilement :</p>
+        <img src="qrcode.png" alt="QR Code LinkedIn">
+      </div>
+      <!-- Documents Utiles -->
+      <div class="section documents-section" id="docs">
+        <h2 id="docs-title">DOCUMENTS UTILES</h2>
+        <ul id="doc-list">
+          <li><a href="badge_CNFCPP.pdf" target="_blank" rel="noopener noreferrer">📄Badge CNFCPP</a></li>
+          <li><a href="CV_CNFCPP_2025.pdf" target="_blank" rel="noopener noreferrer">📄CV CNFCPP 2025</a></li>
+          <li><a href="Attestations de Formation" target="_blank" rel="noopener noreferrer">🏆Attestations de Formation</a></li>
+          <li><a href="docs/attestation_azure.pdf" target="_blank" rel="noopener noreferrer">🏆 Attestation Microsoft Azure</a></li>
+          <li><a href="docs/lettre-motivation.pdf" target="_blank" rel="noopener noreferrer">📝 Lettre de motivation</a></li>
+          <li><a href="docs/portfolio.pdf" target="_blank" rel="noopener noreferrer">📦 Portfolio de mes formations</a></li>
+        </ul>
+      </div>
+      <!-- Calendrier -->
+      <div class="section" id="calendar">
+        <h2 id="calendar-title">MON CALENDRIER</h2>
+        <p id="calendar-desc">Consultez mes disponibilités pour planifier un rendez-vous ou une formation :</p>
+        <iframe src="https://calendar.google.com/calendar/embed?src=malloukinasreddine@gmail.com" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+      </div>
     </div>
   </div>
-  <!-- QR Code Contact -->
-  <div class="section qr-code">
-    <h2 id="qrcode-title">MES COORDONNÉES VIA QR CODE</h2>
-    <p id="qrcode-desc">Scannez le QR Code ci-dessous pour me contacter facilement :</p>
-    <img src="qrcode.png" alt="QR Code LinkedIn">
+
+  <!-- Chatbot -->
+  <div id="chatbot" onclick="toggleChat()">
+    💬 <span id="chatbot-text">Besoin de renseignements ?</span>
   </div>
-  <!-- Documents Utiles -->
-  <div class="section documents-section">
-    <h2 id="docs-title">DOCUMENTS UTILES</h2>
-    <ul id="doc-list">
-      <li><a href="badge_CNFCPP.pdf" target="_blank" rel="noopener noreferrer">📄Badge CNFCPP</a></li>
-      <li><a href="CV_CNFCPP_2025.pdf" target="_blank" rel="noopener noreferrer">📄CV CNFCPP 2025</a></li>
-      <li><a href="Attestations de Formation" target="_blank" rel="noopener noreferrer">🏆Attestations de Formation</a></li>
-      <li><a href="docs/attestation_azure.pdf" target="_blank" rel="noopener noreferrer">🏆 Attestation Microsoft Azure</a></li>
-      <li><a href="docs/lettre-motivation.pdf" target="_blank" rel="noopener noreferrer">📝 Lettre de motivation</a></li>
-      <li><a href="docs/portfolio.pdf" target="_blank" rel="noopener noreferrer">📦 Portfolio de mes formations</a></li>
-    </ul>
+  <!-- Panneau de chat -->
+  <div id="chat-panel">
+    <div class="chat-header">
+      <span onclick="toggleChat()" style="float:right; cursor:pointer;">✖</span>
+      <strong>CV Bot</strong>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <!-- Messages apparaîtront ici -->
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Posez votre question..." onkeypress="handleKeyPress(event)">
+    </div>
   </div>
-  <!-- Calendrier -->
-  <div class="section">
-    <h2 id="calendar-title">MON CALENDRIER</h2>
-    <p id="calendar-desc">Consultez mes disponibilités pour planifier un rendez-vous ou une formation :</p>
-    <iframe src="https://calendar.google.com/calendar/embed?src=malloukinasreddine@gmail.com" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
-  </div>
-</div>
-<!-- Chatbot -->
-<div id="chatbot" onclick="toggleChat()">
-  💬 <span id="chatbot-text">Besoin de renseignements ?</span>
-</div>
-<!-- Panneau de chat -->
-<div id="chat-panel">
-  <div class="chat-header">
-    <span onclick="toggleChat()" style="float:right; cursor:pointer;">✖</span>
-    <strong>CV Bot</strong>
-  </div>
-  <div class="chat-body" id="chat-body">
-    <!-- Messages apparaîtront ici -->
-  </div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Posez votre question..." onkeypress="handleKeyPress(event)">
-  </div>
-</div>
-<style>
-  #chatbot { 
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #27ae60;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-  #chatbot:hover {
-    background-color: #219150;
-  }
-  #chat-panel {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .chat-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  .chat-body {
-    padding: 10px;
-    overflow-y: auto;
-    flex-grow: 1;
-    height: 300px;
-  }
-  .chat-input input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-top: 1px solid #ccc;
-    outline: none;
-  }
-  .message {
-    margin: 8px 0;
-    max-width: 90%;
-    padding: 10px;
-    border-radius: 5px;
-    clear: both;
-  }
-  .user-message {
-    background-color: #d1ecf1;
-    float: right;
-    text-align: right;
-  }
-  .bot-message {
-    background-color: #f1f1f1;
-    float: left;
-    text-align: left;
-  }
-</style>
-<script>
-  function toggleChat() {
-    const panel = document.getElementById("chat-panel");
-    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
-  }
-  function sendMessage() {
-    const input = document.getElementById("userInput");
-    const message = input.value.trim();
-    if (!message) return;
-    addMessage(message, "user");
-    // Réponse automatique selon les mots-clés
-    const reply = getBotReply(message);
-    setTimeout(() => {
-      addMessage(reply, "bot");
-    }, 500);
-    input.value = "";
-  }
-  function handleKeyPress(e) {
-    if (e.key === "Enter") {
-      sendMessage();
+  <style>
+    #chatbot { 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #27ae60;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
     }
-  }
-  function addMessage(text, sender) {
-    const body = document.getElementById("chat-body");
-    const msg = document.createElement("div");
-    msg.classList.add("message");
-    msg.classList.add(sender === "user" ? "user-message" : "bot-message");
-    msg.textContent = text;
-    body.appendChild(msg);
-    body.scrollTop = body.scrollHeight;
-  }
-  function getBotReply(question) {
-    question = question.toLowerCase();
-    // Mots clés pour déclencher des réponses
-    if (question.includes("email") || question.includes("contact")) {
-      return "Vous pouvez me contacter à malloukinasreddine@gmail.com ou via LinkedIn https://www.linkedin.com/feed/  .";
-    } else if (question.includes("formations") || question.includes("formation")) {
-      return "J’ai animé plus de 150 formations certifiantes dans les domaines Python, Linux, Ansible, Azure, Fortinet, Centreon, PostgreSQL, SQL Server...";
-    } else if (question.includes("langue")) {
-      return "Je peux répondre en français et en anglais. Utilisez le bouton FR/EN ci-dessus.";
-    } else if (question.includes("disponible") || question.includes("agenda") || question.includes("calendrier")) {
-      return "Consultez mon calendrier intégré pour voir mes disponibilités ou envoyez-moi un email pour planifier une session.";
-    } else if (question.includes("python")) {
-      return "Oui ! Je suis formateur Python certifié avec plusieurs formations données : Web Scraping, Data Analysis, Django, Flask, Pandas, Numpy...";
-    } else if (question.includes("cv") || question.includes("curriculum")) {
-      return "Mon CV est disponible ici. Si vous voulez une version PDF ou Word, je peux vous la fournir.";
-    } else if (question.includes("hello") || question.includes("hi")) {
-      return "Hello! How can I assist you today?";
-    } else if (question.includes("thank you")) {
-      return "You're welcome! Let me know if you need more info.";
-    } else if (question.includes("CNFCPP") || question.includes("cnfcpp")) {
-      return "Voir la section Documents Utiles"; 
-    } else {
-      return "Merci pour votre question. Pour une réponse personnalisée, veuillez m’envoyer un email à malloukinasreddine@gmail.com ou m'appeler sur mon numeros de Telephone +2195301194.";
+    #chatbot:hover {
+      background-color: #219150;
     }
-  }
-  function handleChatbotClick() {
-    const lang = document.documentElement.lang;
-    if (lang === 'fr') {
-      alert("Vous pouvez me contacter par email à malloukinasreddine@gmail.com ou via LinkedIn https://www.linkedin.com/notifications/?filter=all.");
-    } else {
-      alert("You can contact me by email at malloukinasreddine@gmai.com or via LinkedIn.");
+    #chat-panel {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
     }
-  }
-  function setLang(lang) {
-    document.documentElement.setAttribute("lang", lang);
-    const fr = {
-      role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
-      summary_title: "RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR",
-      summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l'autonomie technique.",
-      cloud_title: "☁️ Expertise en Cloud Computing",
-      security_title: "🔐 Expertise en Sécurité Réseau",
-      monitoring_title: "📊 Expertise en Monitoring",
-      erp_title: "⚙️ Expertise en ERP & GMAO",
-      python_title: "🐍 Expertise en Python",
-      linux_title: "🐧 Expertise en Systèmes Linux",
-      devops_title: "🛠️ Expertise en DevOps",
-      db_title: "💾 Expertise en Bases de Données",
-      trainings_title: "FORMATIONS QUE J'AI ANIMÉES",
-      videos_title: "VIDÉOS DES SESSIONS DE FORMATION",
-      qrcode_title: "MES COORDONNÉES VIA QR CODE",
-      qrcode_desc: "Scannez le QR Code ci-dessous pour me contacter facilement",
-      calendar_title: "MON CALENDRIER",
-      calendar_desc: "Consultez mes disponibilités pour planifier un rendez-vous ou une formation",
-      docs_title: "DOCUMENTS UTILES",
-      chatbot_text: "Besoin de renseignements ?"
-    };
-    const en = {
-      role: "Professional Trainer | Network, Cloud & Development Expert",
-      summary_title: "PROFESSIONAL TRAINING EXPERIENCE",
-      summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer specializing in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, <strong>Cloud Computing</strong>, and ERP tools such as <strong>Odoo</strong>, <strong>Coupa</strong>, and <strong>J@de</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries (France, Tunisia, Mali, Germany...) for technical audiences including engineers, system administrators, developers, and maintenance managers.<br/>My pedagogical approach combines theory and practice, focusing on real-world projects and hands-on learning.",
-      cloud_title: "☁️ Cloud Computing Expertise",
-      security_title: "🔐 Network Security Expertise",
-      monitoring_title: "📊 Monitoring Expertise",
-      erp_title: "⚙️ ERP & CMMS Expertise",
-      python_title: "🐍 Python Expertise",
-      linux_title: "🐧 Linux Systems Expertise",
-      devops_title: "🛠️ DevOps Expertise",
-      db_title: "💾 Database Expertise",
-      trainings_title: "TRAININGS I HAVE CONDUCTED",
-      videos_title: "VIDEO RECORDINGS OF MY TRAINING SESSIONS",
-      qrcode_title: "MY CONTACT DETAILS VIA QR CODE",
-      qrcode_desc: "Scan the QR code below to easily contact me:",
-      calendar_title: "MY CALENDAR",
-      calendar_desc: "Check my availability to schedule a meeting or training session:",
-      docs_title: "USEFUL DOCUMENTS",
-      chatbot_text: "Need more information?"
-    };
-    const t = lang === 'fr' ? fr : en;
-    document.getElementById("role").innerText = t.role;
-    document.getElementById("summary-title").innerText = t.summary_title;
-    document.getElementById("summary-text").innerHTML = t.summary_text;
-    document.getElementById("cloud-title").innerText = t.cloud_title;
-    document.getElementById("security-title").innerText = t.security_title;
-    document.getElementById("monitoring-title").innerText = t.monitoring_title;
-    document.getElementById("erp-title").innerText = t.erp_title;
-    document.getElementById("python-title").innerText = t.python_title;
-    document.getElementById("linux-title").innerText = t.linux_title;
-    document.getElementById("devops-title").innerText = t.devops_title;
-    document.getElementById("db-title").innerText = t.db_title;
-    document.getElementById("trainings-title").innerText = t.trainings_title;
-    document.getElementById("videos-title").innerText = t.videos_title;
-    document.getElementById("qrcode-title").innerText = t.qrcode_title;
-    document.getElementById("qrcode-desc").innerText = t.qrcode_desc;
-    document.getElementById("calendar-title").innerText = t.calendar_title;
-    document.getElementById("calendar-desc").innerText = t.calendar_desc;
-    document.getElementById("docs-title").innerText = t.docs_title;
-    document.getElementById("chatbot-text").innerText = t.chatbot_text;
-    document.getElementById("btn-fr").className = lang === 'fr' ? 'active' : '';
-    document.getElementById("btn-en").className = lang === 'en' ? 'active' : '';
-  }
-  window.onload = () => setLang(document.documentElement.lang || 'fr');
-</script>
+    .chat-header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .chat-body {
+      padding: 10px;
+      overflow-y: auto;
+      flex-grow: 1;
+      height: 300px;
+    }
+    .chat-input input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-top: 1px solid #ccc;
+      outline: none;
+    }
+    .message {
+      margin: 8px 0;
+      max-width: 90%;
+      padding: 10px;
+      border-radius: 5px;
+      clear: both;
+    }
+    .user-message {
+      background-color: #d1ecf1;
+      float: right;
+      text-align: right;
+    }
+    .bot-message {
+      background-color: #f1f1f1;
+      float: left;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleChat() {
+      const panel = document.getElementById("chat-panel");
+      panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (!message) return;
+      addMessage(message, "user");
+      const reply = getBotReply(message);
+      setTimeout(() => {
+        addMessage(reply, "bot");
+      }, 500);
+      input.value = "";
+    }
+
+    function handleKeyPress(e) {
+      if (e.key === "Enter") {
+        sendMessage();
+      }
+    }
+
+    function addMessage(text, sender) {
+      const body = document.getElementById("chat-body");
+      const msg = document.createElement("div");
+      msg.classList.add("message");
+      msg.classList.add(sender === "user" ? "user-message" : "bot-message");
+      msg.textContent = text;
+      body.appendChild(msg);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function getBotReply(question) {
+      question = question.toLowerCase();
+      if (question.includes("email") || question.includes("contact")) {
+        return "Vous pouvez me contacter à malloukinasreddine@gmail.com ou via LinkedIn  https://www.linkedin.com/feed/ ";
+      } else if (question.includes("formations") || question.includes("formation")) {
+        return "J’ai animé plus de 150 formations certifiantes dans les domaines Python, Linux, Ansible, Azure, Fortinet, Centreon, PostgreSQL, SQL Server...";
+      } else if (question.includes("langue")) {
+        return "Je peux répondre en français et en anglais. Utilisez le bouton FR/EN ci-dessus.";
+      } else if (question.includes("disponible") || question.includes("agenda") || question.includes("calendrier")) {
+        return "Consultez mon calendrier intégré pour voir mes disponibilités ou envoyez-moi un email pour planifier une session.";
+      } else if (question.includes("python")) {
+        return "Oui ! Je suis formateur Python certifié avec plusieurs formations données : Web Scraping, Data Analysis, Django, Flask, Pandas, Numpy...";
+      } else if (question.includes("cv") || question.includes("curriculum")) {
+        return "Mon CV est disponible ici. Si vous voulez une version PDF ou Word, je peux vous la fournir.";
+      } else if (question.includes("hello") || question.includes("hi")) {
+        return "Hello! How can I assist you today?";
+      } else if (question.includes("thank you")) {
+        return "You're welcome! Let me know if you need more info.";
+      } else if (question.includes("CNFCPP") || question.includes("cnfcpp")) {
+        return "Voir la section Documents Utiles";
+      } else {
+        return "Merci pour votre question. Pour une réponse personnalisée, veuillez m’envoyer un email à malloukinasreddine@gmail.com ou m'appeler au +2195301194.";
+      }
+    }
+
+    function setLang(lang) {
+      document.documentElement.setAttribute("lang", lang);
+      const fr = {
+        role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
+        summary_title: "RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR",
+        summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l’autonomie technique.",
+        cloud_title: "☁️ Expertise en Cloud Computing",
+        security_title: "🔐 Expertise en Sécurité Réseau",
+        monitoring_title: "📊 Expertise en Monitoring",
+        erp_title: "⚙️ Expertise en ERP & GMAO",
+        python_title: "🐍 Expertise en Python",
+        linux_title: "🐧 Expertise en Systèmes Linux",
+        devops_title: "🛠️ Expertise en DevOps",
+        db_title: "💾 Expertise en Bases de Données",
+        trainings_title: "FORMATIONS QUE J'AI ANIMÉES",
+        videos_title: "VIDÉOS DES SESSIONS DE FORMATION",
+        qrcode_title: "MES COORDONNÉES VIA QR CODE",
+        qrcode_desc: "Scannez le QR Code ci-dessous pour me contacter facilement",
+        calendar_title: "MON CALENDRIER",
+        calendar_desc: "Consultez mes disponibilités pour planifier un rendez-vous ou une formation",
+        docs_title: "DOCUMENTS UTILES",
+        chatbot_text: "Besoin de renseignements ?",
+        nav_title: "Navigation",
+        nav_summary: "Résumé",
+        nav_expertise: "Expertise",
+        nav_trainings: "Formations Animées",
+        nav_videos: "Vidéos",
+        nav_docs: "Documents Utiles",
+        nav_calendar: "Calendrier",
+        nav_qrcode: "Coordonnées"
+      };
+
+      const en = {
+        role: "Professional Trainer | Network, Cloud & Development Expert",
+        summary_title: "PROFESSIONAL TRAINING EXPERIENCE",
+        summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer specializing in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, <strong>Cloud Computing</strong>, and ERP tools such as <strong>Odoo</strong>, <strong>Coupa</strong>, and <strong>J@de</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries (France, Tunisia, Mali, Germany...) for technical audiences including engineers, system administrators, developers, and maintenance managers.<br/>My pedagogical approach combines theory and practice, focusing on real-world projects and hands-on learning.",
+        cloud_title: "☁️ Cloud Computing Expertise",
+        security_title: "🔐 Network Security Expertise",
+        monitoring_title: "📊 Monitoring Expertise",
+        erp_title: "⚙️ ERP & CMMS Expertise",
+        python_title: "🐍 Python Expertise",
+        linux_title: "🐧 Linux Systems Expertise",
+        devops_title: "🛠️ DevOps Expertise",
+        db_title: "💾 Database Expertise",
+        trainings_title: "TRAININGS I HAVE CONDUCTED",
+        videos_title: "VIDEO RECORDINGS OF MY TRAINING SESSIONS",
+        qrcode_title: "MY CONTACT DETAILS VIA QR CODE",
+        qrcode_desc: "Scan the QR code below to easily contact me:",
+        calendar_title: "MY CALENDAR",
+        calendar_desc: "Check my availability to schedule a meeting or training session:",
+        docs_title: "USEFUL DOCUMENTS",
+        chatbot_text: "Need more information?",
+        nav_title: "Navigation",
+        nav_summary: "Summary",
+        nav_expertise: "Expertise",
+        nav_trainings: "Trainings Conducted",
+        nav_videos: "Videos",
+        nav_docs: "Useful Documents",
+        nav_calendar: "Calendar",
+        nav_qrcode: "Contact"
+      };
+
+      const t = lang === 'fr' ? fr : en;
+
+      // Update main content
+      document.getElementById("role").innerText = t.role;
+      document.getElementById("summary-title").innerText = t.summary_title;
+      document.getElementById("summary-text").innerHTML = t.summary_text;
+      document.getElementById("cloud-title").innerText = t.cloud_title;
+      document.getElementById("security-title").innerText = t.security_title;
+      document.getElementById("monitoring-title").innerText = t.monitoring_title;
+      document.getElementById("erp-title").innerText = t.erp_title;
+      document.getElementById("python-title").innerText = t.python_title;
+      document.getElementById("linux-title").innerText = t.linux_title;
+      document.getElementById("devops-title").innerText = t.devops_title;
+      document.getElementById("db-title").innerText = t.db_title;
+      document.getElementById("trainings-title").innerText = t.trainings_title;
+      document.getElementById("videos-title").innerText = t.videos_title;
+      document.getElementById("qrcode-title").innerText = t.qrcode_title;
+      document.getElementById("qrcode-desc").innerText = t.qrcode_desc;
+      document.getElementById("calendar-title").innerText = t.calendar_title;
+      document.getElementById("calendar-desc").innerText = t.calendar_desc;
+      document.getElementById("docs-title").innerText = t.docs_title;
+      document.getElementById("chatbot-text").innerText = t.chatbot_text;
+
+      // Update sidebar navigation
+      document.querySelector("#nav-title").innerText = t.nav_title;
+      document.querySelector("#nav-summary").innerText = t.nav_summary;
+      document.querySelector("#nav-expertise").innerText = t.nav_expertise;
+      document.querySelector("#nav-trainings").innerText = t.nav_trainings;
+      document.querySelector("#nav-videos").innerText = t.nav_videos;
+      document.querySelector("#nav-docs").innerText = t.nav_docs;
+      document.querySelector("#nav-calendar").innerText = t.nav_calendar;
+      document.querySelector("#nav-qrcode").innerText = t.nav_qrcode;
+
+      // Update language switcher
+      document.getElementById("btn-fr").className = lang === 'fr' ? 'active' : '';
+      document.getElementById("btn-en").className = lang === 'en' ? 'active' : '';
+    }
+
+    window.onload = () => setLang(document.documentElement.lang || 'fr');
+  </script>
 </body>
 </html>
