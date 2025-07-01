@@ -110,6 +110,7 @@
       padding: 10px 20px;
       font-size: 1.1em;
       color: #2c3e50;
+      font-weight: bold;
     }
     .sidebar ul {
       list-style: none;
@@ -124,10 +125,20 @@
       color: #27ae60;
       font-weight: bold;
       display: block;
+      transition: all 0.3s ease;
     }
     .sidebar a:hover {
       background-color: #f0f0f0;
+      padding-left: 25px;
     }
+        /* Icônes dans le menu */
+    .nav-summary::before { content: "📄"; margin-right: 10px; }
+    .nav-expertise::before { content: "🧰"; margin-right: 10px; }
+    .nav-trainings::before { content: "🎓"; margin-right: 10px; }
+    .nav-videos::before { content: "🎥"; margin-right: 10px; }
+    .nav-docs::before { content: "📚"; margin-right: 10px; }
+    .nav-calendar::before { content: "📅"; margin-right: 10px; }
+    .nav-contact::before { content: "📍"; margin-right: 10px; }
     .main-content {
       flex-grow: 1;
       padding-left: 240px;
@@ -254,13 +265,13 @@
 <nav class="sidebar">
   <h3 id="nav-title">Navigation</h3>
   <ul>
-    <li><a href="#summary" id="nav-summary">Résumé</a></li>
-    <li><a href="#expertise" id="nav-expertise">Expertise</a></li>
-    <li><a href="#trainings" id="nav-trainings">Formations Animées</a></li>
-    <li><a href="#videos" id="nav-videos">Vidéos</a></li>
-    <li><a href="#docs" id="nav-docs">Documents Utiles</a></li>
-    <li><a href="#calendar" id="nav-calendar">Calendrier</a></li>
-    <li><a href="#qrcode" id="nav-contact">Coordonnées</a></li>
+    <li><a href="#summary" class="nav-summary">Résumé</a></li>
+    <li><a href="#expertise" class="nav-expertise">Expertise</a></li>
+    <li><a href="#trainings" class="nav-trainings">Formations Animées</a></li>
+    <li><a href="#videos" class="nav-videos">Vidéos</a></li>
+    <li><a href="#docs" class="nav-docs">Documents Utiles</a></li>
+    <li><a href="#calendar" class="nav-calendar">Calendrier</a></li>
+    <li><a href="#qrcode" class="nav-contact">Coordonnées</a></li>
   </ul>
 </nav>
 
@@ -686,9 +697,17 @@ function setLang(lang) {
   document.documentElement.setAttribute("lang", lang);
 
   const fr = {
-    role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
+   role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
     summary_title: "RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR",
-    summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...).<br/>Mon approche pédagogique allie théorie et pratique.",
+    summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l’autonomie technique.",
+    cloud_title: "☁️ Expertise en Cloud Computing",
+    security_title: "🔐 Expertise en Sécurité Réseau",
+    monitoring_title: "📊 Expertise en Monitoring",
+    erp_title: "⚙️ Expertise en ERP & GMAO",
+    python_title: "🐍 Expertise en Python",
+    linux_title: "🐧 Expertise en Systèmes Linux",
+    devops_title: "🛠️ Expertise en DevOps",
+    db_title: "💾 Expertise en Bases de Données",
     trainings_title: "FORMATIONS ANIMÉES",
     videos_title: "VIDÉOS DES SESSIONS DE FORMATION",
     qrcode_title: "MES COORDONNÉES VIA QR CODE",
@@ -708,9 +727,17 @@ function setLang(lang) {
   };
 
   const en = {
-    role: "Professional Trainer | Network, Cloud & Development Expert",
+     role: "Professional Trainer | Network, Cloud & Development Expert",
     summary_title: "PROFESSIONAL TRAINING EXPERIENCE",
-    summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, and <strong>Cloud Computing</strong>, with ERP tools like <strong>Odoo</strong>, <strong>Coupa</strong>, and <strong>J@de</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries.<br/>My approach combines theory and hands-on learning.",
+    summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, and <strong>Cloud Computing</strong>, and ERP tools such as <strong>Odoo</strong>, <strong>Coupa</strong>, and <strong>J@de</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries for technical audiences including engineers, system administrators, developers, and maintenance managers.<br/>My pedagogical approach combines theory and practice.",
+    cloud_title: "☁️ Cloud Computing Expertise",
+    security_title: "🔐 Network Security Expertise",
+    monitoring_title: "📊 Monitoring Expertise",
+    erp_title: "⚙️ ERP & CMMS Expertise",
+    python_title: "🐍 Python Expertise",
+    linux_title: "🐧 Linux Systems Expertise",
+    devops_title: "🛠️ DevOps Expertise",
+    db_title: "💾 Database Expertise",
     trainings_title: "TRAININGS CONDUCTED",
     videos_title: "VIDEO RECORDINGS OF MY TRAINING SESSIONS",
     qrcode_title: "MY CONTACT DETAILS VIA QR CODE",
@@ -735,6 +762,14 @@ function setLang(lang) {
   document.getElementById("role").innerText = t.role;
   document.getElementById("summary-title").innerText = t.summary_title;
   document.getElementById("summary-text").innerHTML = t.summary_text;
+  document.getElementById("cloud-title").innerText = t.cloud_title;
+  document.getElementById("security-title").innerText = t.security_title;
+  document.getElementById("monitoring-title").innerText = t.monitoring_title;
+  document.getElementById("erp-title").innerText = t.erp_title;
+  document.getElementById("python-title").innerText = t.python_title;
+  document.getElementById("linux-title").innerText = t.linux_title;
+  document.getElementById("devops-title").innerText = t.devops_title;
+  document.getElementById("db-title").innerText = t.db_title;
   document.getElementById("trainings-title").innerText = t.trainings_title;
   document.getElementById("videos-title").innerText = t.videos_title;
   document.getElementById("qrcode-title").innerText = t.qrcode_title;
