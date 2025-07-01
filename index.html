@@ -392,13 +392,6 @@
       </div>
     </div>
 
-    <!-- QR Code Contact -->
-    <div class="section qr-code" id="qrcode">
-      <h2 id="qrcode-title">MES COORDONNÉES VIA QR CODE</h2>
-      <p id="qrcode-desc">Scannez le QR Code ci-dessous pour me contacter facilement :</p>
-      <img src="qrcode.png" alt="QR Code LinkedIn">
-    </div>
-
     <!-- Documents Utiles -->
     <div class="section documents-section" id="docs">
       <h2 id="docs-title">DOCUMENTS UTILES</h2>
@@ -417,6 +410,12 @@
       <h2 id="calendar-title">MON CALENDRIER</h2>
       <p id="calendar-desc">Consultez mes disponibilités pour planifier un rendez-vous ou une formation :</p>
       <iframe src="https://calendar.google.com/calendar/embed?src=malloukinasreddine@gmail.com" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+    </div>
+        <!-- QR Code Contact -->
+    <div class="section qr-code" id="qrcode">
+      <h2 id="qrcode-title">MES COORDONNÉES VIA QR CODE</h2>
+      <p id="qrcode-desc">Scannez le QR Code ci-dessous pour me contacter facilement :</p>
+      <img src="qrcode.png" alt="QR Code LinkedIn">
     </div>
   </div>
 </div>
@@ -747,17 +746,26 @@ function setLang(lang) {
   const t = lang === 'fr' ? fr : en;
 
   // Met à jour les textes
-  document.getElementById("role").innerText = t.role;
-  document.getElementById("summary-title").innerText = t.summary_title;
-  document.getElementById("summary-text").innerHTML = t.summary_text;
-  document.getElementById("trainings-title").innerText = t.trainings_title;
-  document.getElementById("videos-title").innerText = t.videos_title;
-  document.getElementById("qrcode-title").innerText = t.qrcode_title;
-  document.getElementById("qrcode-desc").innerText = t.qrcode_desc;
-  document.getElementById("calendar-title").innerText = t.calendar_title;
-  document.getElementById("calendar-desc").innerText = t.calendar_desc;
-  document.getElementById("docs-title").innerText = t.docs_title;
-  document.getElementById("chatbot-text").innerText = t.chatbot_text;
+      // Update main content
+      document.getElementById("role").innerText = t.role;
+      document.getElementById("summary-title").innerText = t.summary_title;
+      document.getElementById("summary-text").innerHTML = t.summary_text;
+      document.getElementById("cloud-title").innerText = t.cloud_title;
+      document.getElementById("security-title").innerText = t.security_title;
+      document.getElementById("monitoring-title").innerText = t.monitoring_title;
+      document.getElementById("erp-title").innerText = t.erp_title;
+      document.getElementById("python-title").innerText = t.python_title;
+      document.getElementById("linux-title").innerText = t.linux_title;
+      document.getElementById("devops-title").innerText = t.devops_title;
+      document.getElementById("db-title").innerText = t.db_title;
+      document.getElementById("trainings-title").innerText = t.trainings_title;
+      document.getElementById("videos-title").innerText = t.videos_title;
+      document.getElementById("qrcode-title").innerText = t.qrcode_title;
+      document.getElementById("qrcode-desc").innerText = t.qrcode_desc;
+      document.getElementById("calendar-title").innerText = t.calendar_title;
+      document.getElementById("calendar-desc").innerText = t.calendar_desc;
+      document.getElementById("docs-title").innerText = t.docs_title;
+      document.getElementById("chatbot-text").innerText = t.chatbot_text;
 
   // Met à jour le menu de navigation
   document.querySelector("#nav-title").innerText = t.nav_title;
