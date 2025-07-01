@@ -6,9 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTGWFT0XYQ"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VTGWFT0XYQ');</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VTGWFT0XYQ');
+  </script>
 
-  <!-- SEO Meta Tags -->
+  <!-- Meta Tags SEO -->
   <meta name="description" content="CV en ligne de Nasreddine Mallouki – Formateur expert en Python, Linux, Azure, DevOps, Bases de données, Monitoring (Centreon), Sécurité réseau (Fortinet), ERP Odoo & Coupa">
   <meta name="keywords" content="formateur python, formateur linux, azure dp-203, centreon, fortinet, odoo, sql server, postgresql, devops, monitoring, sécurité réseau, formation informatique">
   <meta name="author" content="Nasreddine Mallouki">
@@ -45,7 +50,7 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- CSS Principal -->
+  <!-- Styles principaux -->
   <style>
     * { box-sizing: border-box; }
     body {
@@ -56,7 +61,38 @@
       background-color: #f9f9f9;
       color: #333;
       display: flex;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    /* Mode sombre */
+    body.dark {
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+    }
+    body.dark header {
+      background: linear-gradient(to right, #0d47a1, #1b5e20);
+    }
+    body.dark .sidebar {
+      background-color: #2a2a2a;
+      color: #f1f1f1;
+    }
+    body.dark .documents-section a,
+    body.dark .lang-switch button {
+      background-color: #3a3a3a;
+      color: #0f9d58;
+      border: 1px solid #0f9d58;
+    }
+    body.dark .lang-switch button.active {
+      background-color: #0f9d58;
+      color: white;
+    }
+    body.dark .chatbot {
+      background-color: #0f9d58;
+    }
+    body.dark .chatbot:hover {
+      background-color: #0c7b44;
+    }
+
     header {
       background: linear-gradient(to right, #27ae60, #2c3e50);
       color: white;
@@ -92,6 +128,8 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       margin-bottom: 15px;
     }
+
+    /* Barre latérale */
     .sidebar {
       width: 220px;
       background-color: #ffffff;
@@ -104,6 +142,7 @@
       padding-top: 20px;
       border-right: 1px solid #ddd;
       z-index: 999;
+      transition: background-color 0.3s, color 0.3s;
     }
     .sidebar h3 {
       margin-top: 0;
@@ -131,7 +170,8 @@
       background-color: #f0f0f0;
       padding-left: 25px;
     }
-        /* Icônes dans le menu */
+
+    /* Icônes dans le menu */
     .nav-summary::before { content: "📄"; margin-right: 10px; }
     .nav-expertise::before { content: "🧰"; margin-right: 10px; }
     .nav-trainings::before { content: "🎓"; margin-right: 10px; }
@@ -139,10 +179,12 @@
     .nav-docs::before { content: "📚"; margin-right: 10px; }
     .nav-calendar::before { content: "📅"; margin-right: 10px; }
     .nav-contact::before { content: "📍"; margin-right: 10px; }
+
     .main-content {
       flex-grow: 1;
       padding-left: 240px;
     }
+
     .container {
       width: 90%;
       max-width: 1100px;
@@ -153,28 +195,44 @@
       margin-top: -30px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    .dark .container {
+      background-color: #2a2a2a;
+    }
+
     h1, h2, h3 {
       color: #2c3e50;
       margin-bottom: 10px;
     }
+
+    .dark h1, .dark h2, .dark h3 {
+      color: #0f9d58;
+    }
+
     p {
       margin-bottom: 15px;
     }
+
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
     }
+
     li {
       margin-bottom: 8px;
     }
+
     strong {
       color: #27ae60;
     }
+
     .section {
       margin-bottom: 50px;
       scroll-margin-top: 80px;
     }
+
     .expertise-section {
       background-color: #f1f1f1;
       border-left: 4px solid #27ae60;
@@ -182,30 +240,36 @@
       border-radius: 8px;
       margin-bottom: 30px;
     }
+
+    .dark .expertise-section {
+      background-color: #3a3a3a;
+      border-left: 4px solid #0f9d58;
+    }
+
     .video-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 15px;
     }
-    .video-gallery video {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+
     .qr-code {
       text-align: center;
     }
+
     .qr-code img {
       width: 150px;
       height: 150px;
     }
+
     .documents-section ul {
       list-style: none;
       padding: 0;
     }
+
     .documents-section li {
       margin: 10px 0;
     }
+
     .documents-section a {
       text-decoration: none;
       color: #27ae60;
@@ -216,10 +280,12 @@
       transition: all 0.3s ease;
       display: inline-block;
     }
+
     .documents-section a:hover {
       background-color: #27ae60;
       color: white;
     }
+
     #chatbot {
       position: fixed;
       bottom: 20px;
@@ -232,9 +298,83 @@
       z-index: 1000;
       transition: background-color 0.3s ease;
     }
+
     #chatbot:hover {
       background-color: #219150;
     }
+
+    #chat-panel {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .chat-header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .dark .chat-header {
+      background-color: #0f9d58;
+    }
+
+    .chat-body {
+      padding: 10px;
+      overflow-y: auto;
+      flex-grow: 1;
+      height: 300px;
+    }
+
+    .chat-input input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-top: 1px solid #ccc;
+      outline: none;
+    }
+
+    .message {
+      margin: 8px 0;
+      max-width: 90%;
+      padding: 10px;
+      border-radius: 5px;
+      clear: both;
+    }
+
+    .user-message {
+      background-color: #d1ecf1;
+      float: right;
+      text-align: right;
+    }
+
+    .bot-message {
+      background-color: #f1f1f1;
+      float: left;
+      text-align: left;
+    }
+
+    .dark .user-message {
+      background-color: #444;
+    }
+
+    .dark .bot-message {
+      background-color: #555;
+      color: #fff;
+    }
+
     @media (max-width: 800px) {
       .sidebar {
         display: none;
@@ -254,6 +394,23 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
+    /* Bouton thème sombre/clair */
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 100px;
+      background-color: #ecf0f1;
+      color: #333;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .theme-toggle:hover {
+      background-color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -261,22 +418,24 @@
 <!-- Google Translate -->
 <div id="google_translate_element"></div>
 
-<!-- Barre latérale -->
-<nav class="sidebar">
-  <h3 id="nav-title">Navigation</h3>
-  <ul>
-    <li><a href="#summary" class="nav-summary">Résumé</a></li>
-    <li><a href="#expertise" class="nav-expertise">Expertise</a></li>
-    <li><a href="#trainings" class="nav-trainings">Formations Animées</a></li>
-    <li><a href="#videos" class="nav-videos">Vidéos</a></li>
-    <li><a href="#docs" class="nav-docs">Documents Utiles</a></li>
-    <li><a href="#calendar" class="nav-calendar">Calendrier</a></li>
-    <li><a href="#qrcode" class="nav-contact">Coordonnées</a></li>
-  </ul>
-</nav>
+<!-- Bouton Thème Sombre/Clair -->
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+  }
+
+  window.onload = () => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      document.body.classList.add("dark");
+    }
+  };
+</script>
 
 <div class="main-content">
   <header>
+    <button onclick="toggleTheme()" class="theme-toggle">🌙</button>
     <div class="lang-switch">
       <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
       <button onclick="setLang('en')" id="btn-en">EN</button>
@@ -287,7 +446,6 @@
   </header>
 
   <div class="container">
-
     <!-- Résumé -->
     <div class="section" id="summary">
       <h2 id="summary-title">RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR</h2>
@@ -298,7 +456,7 @@
       </p>
     </div>
 
-    <!-- Expertise -->
+    <!-- Sections Expertise -->
     <div class="section" id="expertise">
       <h2>EXPERTISE PROFESSIONNELLE</h2>
       <div class="expertise-section" id="cloud">
@@ -371,10 +529,12 @@
       <div class="filter-bar">
         <input type="text" id="filterInput" onkeyup="filterTrainings()" placeholder="Rechercher par année ou mot-clé...">
       </div>
-      <ul id="trainings-list"></ul>
+      <ul id="trainings-list">
+        <!-- Les formations seront insérées via JavaScript -->
+      </ul>
     </div>
 
-    <!-- Vidéos des formations -->
+    <!-- Vidéos -->
     <div class="section" id="videos">
       <h2 id="videos-title">VIDÉOS DES SESSIONS DE FORMATION</h2>
       <div class="video-gallery">
@@ -383,8 +543,6 @@
         <video controls><source src="web_video_with_text.mp4" type="video/webm">Votre navigateur ne supporte pas cette balise vidéo.</video>
         <video controls><source src="web_video1.mp4" type="video/mp4">Votre navigateur ne supporte pas cette balise vidéo.</video>
         <video controls><source src="web_video_lookml.mp4" type="video/mp4">Votre navigateur ne supporte pas cette balise vidéo.</video>
-        <video controls><source src="web_video1.mp4" type="video/mp4">Votre navigateur ne supporte pas cette balise vidéo.</video>
-        <video controls><source src="web_video1.mp4" type="video/mp4">Votre navigateur ne supporte pas cette balise vidéo.</video>
       </div>
     </div>
 
@@ -438,7 +596,6 @@
   border-radius: 10px;
   cursor: pointer;
   z-index: 1000;
-  transition: background-color 0.3s ease;
 }
 #chatbot:hover {
   background-color: #219150;
@@ -495,9 +652,17 @@
   float: left;
   text-align: left;
 }
+.dark .user-message {
+  background-color: #444;
+}
+.dark .bot-message {
+  background-color: #555;
+  color: #fff;
+}
 </style>
 
 <script>
+// Liste des formations
 const fr_trainings = [
   "<strong>23/06/2025 - 24/06/2025 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée...",
   "<strong>12/06/2025 - 15/06/2025 :</strong> Formation Ansible - Ecole DSP, France",
@@ -506,8 +671,8 @@ const fr_trainings = [
   "<strong>01/04/2025 - 03/04/2025 :</strong> Formation FortiWeb - INPS Mali",
   "<strong>24/03/2025 - 26/03/2025 :</strong> Formation FortiManager - INPS Mali",
   "<strong>17/03/2025 - 19/03/2025 :</strong> Formation FortiAnalyser - INPS Mali",
-  "<strong>04/02/2025 - 07/02/2025 :</strong> Formation PostgreSQL - Ministère de la Défense Nationale",
-  "<strong>27/01/2025 - 30/01/2025 :</strong> Formation «Python – Programming Fundamentals PCEP» - Linsoft",
+  "<strong>04/02/2025 - 07/02/2025 :</strong> Formation PostgreSQL - Ministère de la Défense",
+  "<strong>27/01/2025 - 30/01/2025 :</strong> Formation Programming Fundamentals PCEP - Linsoft",
   "<strong>22/01/2025 :</strong> Formation LOOKML – Introduction to LookML - Access-it",
   "<strong>13/01/2025 :</strong> Formation SC-900 - Access-it",
   "<strong>18/12/2024 - 20/12/2024 :</strong> Formation M20764C - Access-it",
@@ -517,89 +682,88 @@ const fr_trainings = [
   "<strong>04/11/2024 - 12/11/2024 :</strong> Formation Linux Professional Institute - FNZ Tunisie",
   "<strong>21/10/2024 - 24/10/2024 :</strong> Formation Intelligence Artificielle - Krochu Tunisie",
   "<strong>07/10/2024 - 10/10/2024 :</strong> Formation Fortinet SDWAN - ODDO France + Lilas Tunisie",
-  "<strong>23/09/2024 - 27/09/2024 :</strong> Formation Redhat Administration RH134 - Amen Banque-Tunisie",
-  "<strong>16/09/2024 - 18/09/2024 :</strong> Formation PL-100 Power Platform App Maker - Access-it",
+  "<strong>23/09/2024 - 27/09/2024 :</strong> Formation Redhat RH134 - Amen Banque-Tunisie",
+  "<strong>16/09/2024 - 18/09/2024 :</strong> Formation Power Platform App Maker - Access-it",
   "<strong>06/09/2024 :</strong> Formation Google LookML - Access-it",
-  "<strong>12/08/2024 - 14/08/2024 :</strong> Formation Data Warehousing AWS : AWS Redshift - Access-it",
+  "<strong>12/08/2024 - 14/08/2024 :</strong> Formation AWS Redshift - Access-it",
   "<strong>25/06/2024 - 28/06/2024 :</strong> Formation Microsoft Azure AI-102 - Access-it",
-  "<strong>18/06/2024 - 20/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it",
-  "<strong>03/06/2024 - 05/06/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it",
-  "<strong>23/04/2024 - 25/04/2024 :</strong> Formation Monitoring Centreon niveau Administration - Access-it",
+  "<strong>18/06/2024 - 20/06/2024 :</strong> Formation Monitoring Centreon - Access-it",
+  "<strong>03/06/2024 - 05/06/2024 :</strong> Formation Monitoring Centreon - Access-it",
+  "<strong>23/04/2024 - 25/04/2024 :</strong> Formation Monitoring Centreon - Access-it",
   "<strong>05/03/2024 - 08/03/2024 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services - Access-it",
   "<strong>28/02/2024 - 29/02/2024 :</strong> Formation La Technologie sans fil WIFI 7 niveau avancée - Access-it",
   "<strong>19/02/2024 - 22/02/2024 :</strong> Formation MS-500 : Administration de la sécurité Microsoft 365 - Access-it",
-  "<strong>11/12/2023 - 14/12/2023 :</strong> Formation Az-801 Configuring Windows Server Hybrid Advanced Services",
+  "<strong>11/12/2023 - 14/12/2023 :</strong> Formation Az-801 Windows Server",
   "<strong>27/11/2023 - 28/11/2023 :</strong> Formation ELK Monitoring",
-  "<strong>21/11/2023 - 24/11/2023 :</strong> Formation Az-040 Automating Administration with Powershell",
-  "<strong>15/11/2023 - 17/11/2023 :</strong> Formation Monitoring Server with Centreon - Access-it",
+  "<strong>21/11/2023 - 24/11/2023 :</strong> Formation Powershell Automation",
+  "<strong>15/11/2023 - 17/11/2023 :</strong> Formation Monitoring Server - Access-it",
   "<strong>30/10/2023 - 02/11/2023 :</strong> Formation Linux Administration",
   "<strong>23/10/2023 - 25/10/2023 :</strong> Formation NSE FortiNAC 7.2",
   "<strong>18/09/2023 - 22/09/2023 :</strong> Formation Linux Administration",
-  "<strong>04/09/2023 - 08/09/2023 :</strong> Formation WS-011 Windows Server 2019 Administration",
+  "<strong>04/09/2023 - 08/09/2023 :</strong> Formation WS-011 Windows Server",
   "<strong>28/08/2023 - 31/08/2023 :</strong> Formation AZ-800: Administering Windows Server Hybrid Core Infrastructure",
   "<strong>10/07/2023 - 14/07/2023 :</strong> Formation DP-203: Data Engineering on Microsoft Azure",
   "<strong>26/06/2023 - 28/06/2023 :</strong> Formation AI-900: Microsoft Azure AI Fundamentals",
-  "<strong>19/06/2023 - 22/06/2023 :</strong> Formation AZ-140T00A Configuring and Operating Azure Virtual Desktop",
+  "<strong>19/06/2023 - 22/06/2023 :</strong> Formation Azure Virtual Desktop",
   "<strong>05/06/2023 - 07/06/2023 :</strong> Formation Azure and Cloud services",
   "<strong>31/05/2023 - 02/06/2023 :</strong> Formation Entry-Level-Python",
   "<strong>15/05/2023 - 19/05/2023 :</strong> Formation Python Machine Learning",
   "<strong>08/05/2023 - 12/05/2023 :</strong> Formation SQLServer 2019",
-  "<strong>07/03/2023 - 10/03/2023 :</strong> Formation Fondamentaux de la Cyber sécurité & Offensive Security",
+  "<strong>07/03/2023 - 10/03/2023 :</strong> Formation Fondamentaux de la Cyber sécurité",
   "<strong>02/03/2023 - 03/03/2023 :</strong> Formation Perfectionnement Word & Excel",
   "<strong>22/02/2023 - 24/02/2023 :</strong> Formation PostgreSQL",
   "<strong>01/02/2023 - 03/02/2023 :</strong> Formation Windows Server",
-  "<strong>25/01/2023 - 31/01/2023 :</strong> Formation Word Excel publipostage",
-  "<strong>09/01/2023 - 13/01/2023 :</strong> Formation La SUITE ELK",
-  "<strong>26/12/2022 - 30/12/2022 :</strong> Formation SQLServer 2019",
-  "<strong>12/12/2022 - 16/12/2022 :</strong> Formation Administration Base de données Posgtresql",
-  "<strong>05/12/2022 - 09/12/2022 :</strong> Formation Installation et Administration du service Web sous Linux",
+  "<strong>25/01/2023 - 31/01/2023 :</strong> Formation Excel publipostage",
+  "<strong>09/01/2023 - 13/01/2023 :</strong> Formation SUITE ELK",
+  "<strong>26/12/2022 - 30/12/2022 :</strong> Formation SQLServer 2019 Admin",
+  "<strong>12/12/2022 - 16/12/2022 :</strong> Formation PostgreSQL",
+  "<strong>05/12/2022 - 09/12/2022 :</strong> Formation Service Web sous Linux",
   "<strong>14/11/2022 - 18/11/2022 :</strong> Formation Fonctionnalité & Services IP",
-  "<strong>07/11/2022 - 11/11/2022 :</strong> Formation La SUITE ELK",
-  "<strong>24/10/2022 - 27/10/2022 :</strong> Formation Python et Algorithmique",
-  "<strong>17/10/2022 - 21/10/2022 :</strong> Formation DP-203: Data Engineering on Microsoft Azure",
-  "<strong>06/10/2022 - 13/10/2022 :</strong> Encadrement projet Fin de Formation BDD_CGI",
-  "<strong>23/09/2022 - 05/10/2022 :</strong> Formation Administration BDD SQL SERVER 2019",
-  "<strong>21/09/2022 - 22/09/2022 :</strong> Formation Administration POSTGRESQL Avancée",
-  "<strong>16/09/2022 - 20/09/2022 :</strong> Formation Administration POSTGRESQL",
-  "<strong>05/09/2022 - 09/09/2022 :</strong> Formation NFV et SDN pour l'évolution des réseaux",
+  "<strong>07/11/2022 - 11/11/2022 :</strong> Formation SUITE ELK",
+  "<strong>24/10/2022 - 27/10/2022 :</strong> Formation Python Algorithmique",
+  "<strong>17/10/2022 - 21/10/2022 :</strong> Formation DP-203 Azure",
+  "<strong>06/10/2022 - 13/10/2022 :</strong> Projet Fin de Formation BDD_CGI",
+  "<strong>23/09/2022 - 05/10/2022 :</strong> Formation SQL SERVER 2019",
+  "<strong>21/09/2022 - 22/09/2022 :</strong> Formation POSTGRESQL Avancée",
+  "<strong>16/09/2022 - 20/09/2022 :</strong> Formation POSTGRESQL",
+  "<strong>05/09/2022 - 09/09/2022 :</strong> Formation NFV et SDN",
   "<strong>25/08/2022 - 30/08/2022 :</strong> Formation Langage SQL",
-  "<strong>15/08/2022 - 19/08/2022 :</strong> Formation AI-102: Microsoft Azure AI Solution",
-  "<strong>03/08/2022 - 10/08/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible",
-  "<strong>01/08/2022 - 02/08/2022 :</strong> Formation Programmation Shell Linux",
-  "<strong>25/07/2022 - 29/07/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible",
+  "<strong>15/08/2022 - 19/08/2022 :</strong> Formation AI-102 Azure",
+  "<strong>03/08/2022 - 10/08/2022 :</strong> Formation Automatisation Ansible",
+  "<strong>01/08/2022 - 02/08/2022 :</strong> Formation Shell Linux",
+  "<strong>25/07/2022 - 29/07/2022 :</strong> Formation Infrastructure Ansible",
   "<strong>11/07/2022 - 14/07/2022 :</strong> Formation Infrastructure Ansible",
-  "<strong>13/06/2022 - 16/06/2022 :</strong> Formation Introduction TCP/IP",
-  "<strong>06/06/2022 - 10/06/2022 :</strong> Formation Framework Django",
-  "<strong>09/05/2022 - 14/05/2022 :</strong> Formation Red Hat Linux – Automatisation avec Ansible",
-  "<strong>18/04/2022 - 22/04/2022 :</strong> Formation Evolution du réseau du transport IP",
+  "<strong>13/06/2022 - 16/06/2022 :</strong> Formation TCP/IP",
+  "<strong>06/06/2022 - 10/06/2022 :</strong> Formation Django",
+  "<strong>09/05/2022 - 14/05/2022 :</strong> Formation Ansible",
+  "<strong>18/04/2022 - 22/04/2022 :</strong> Formation Evolution du réseau IP",
   "<strong>04/04/2022 - 08/04/2022 :</strong> Formation Framework Flask",
-  "<strong>15/03/2022 - 16/03/2022 :</strong> Formation Data Analysis et Visualisation",
-  "<strong>14/03/2022 - 18/03/2022 :</strong> Formation Evolution des réseaux vers l'IMS",
-  "<strong>21/02/2022 - 23/02/2022 :</strong> Formation Linux Opertaing System",
+  "<strong>15/03/2022 - 16/03/2022 :</strong> Formation Data Analysis",
+  "<strong>14/03/2022 - 18/03/2022 :</strong> Formation IMS",
+  "<strong>21/02/2022 - 23/02/2022 :</strong> Formation Linux OS",
   "<strong>22/11/2021 - 26/11/2021 :</strong> Formation C#",
-  "<strong>08/11/2021 - 20/11/2021 :</strong> Formation Les bases de Python",
+  "<strong>08/11/2021 - 20/11/2021 :</strong> Formation bases de Python",
   "<strong>22/11/2021 - 27/11/2021 :</strong> Formation Vmware",
-  "<strong>11/11/2021 - 15/11/2021 :</strong> Formation Sécurité des Réseaux",
+  "<strong>11/11/2021 - 15/11/2021 :</strong> Formation Sécurité Réseau",
   "<strong>01/11/2021 - 06/11/2021 :</strong> Formation Testing avec Python",
-  "<strong>10/05/2021 - 12/05/2021 :</strong> Formation QEMU/VIRT-MANAGER/KVM",
-  "<strong>04/10/2021 - 07/10/2021 :</strong> Formation Initiation scripting shell",
-  "<strong>12/04/2021 - 17/04/2021 :</strong> Formation Odoo 15 server configuration",
-  "<strong>01/03/2021 - 05/03/2021 :</strong> Formation Les fondamentaux IP MPLS",
-  "<strong>20/05/2020 - 22/05/2020 :</strong> Formation utilisation solution COUPA P2P",
-  "<strong>02/12/2019 - 05/12/2019 :</strong> Formation utilisation solution J@de",
-  "<strong>06/05/2019 - 08/05/2019 :</strong> Formation Création Catalogues fournisseurs",
-  "<strong>13/05/2019 - 15/05/2019 :</strong> Formation Reprise de données des catalogues industriels",
-  "<strong>22/04/2019 - 24/04/2019 :</strong> Formation Reprise de données des catalogues industriels",
-  "<strong>04/03/2019 - 06/04/2019 :</strong> Formation Reprise de données des catalogues industriels",
-  "<strong>18/03/2019 - 20/03/2019 :</strong> Formation Création de Catalogues Fournisseurs",
-  "<strong>25/03/2019 - 27/03/2019 :</strong> Formation Reprise de données des catalogues industriels"
+  "<strong>10/05/2021 - 12/05/2021 :</strong> Formation QEMU/KVM",
+  "<strong>04/10/2021 - 07/10/2021 :</strong> Formation Scripting shell",
+  "<strong>12/04/2021 - 17/04/2021 :</strong> Formation Odoo 15",
+  "<strong>01/03/2021 - 05/03/2021 :</strong> Formation IP MPLS",
+  "<strong>20/05/2020 - 22/05/2020 :</strong> Formation Coupa P2P",
+  "<strong>02/12/2019 - 05/12/2019 :</strong> Formation J@de",
+  "<strong>06/05/2019 - 08/05/2019 :</strong> Formation Catalogues fournisseurs",
+  "<strong>13/05/2019 - 15/05/2019 :</strong> Formation Reprise de données",
+  "<strong>22/04/2019 - 24/04/2019 :</strong> Formation Reprise de données",
+  "<strong>04/03/2019 - 06/04/2019 :</strong> Formation Reprise industrielle",
+  "<strong>18/03/2019 - 20/03/2019 :</strong> Formation Catalogue Fournisseur",
+  "<strong>25/03/2019 - 27/03/2019 :</strong> Formation Reprise industrielle"
 ];
 
-// Liste anglaise des formations (abrégée ici – vous pouvez enrichir cette liste si nécessaire)
 const en_trainings = [
   "<strong>Jun 23–24, 2025:</strong> Advanced WIFI 7 Technology Training - Access-it",
   "<strong>Jun 12–15, 2025:</strong> Ansible Training - Ecole DSP, France",
-  "<strong>May 27–30, 2025:</strong> Centreon Administration - Access-it",
+  "<strong>May 27–30, 2025:</strong> Centreon Admin Level - Access-it",
   "<strong>May 19–22, 2025:</strong> Python Development - Orange Tunisia",
   "<strong>Apr 1–3, 2025:</strong> FortiWeb - INPS Mali",
   "<strong>Mar 24–26, 2025:</strong> FortiManager - INPS Mali",
@@ -672,14 +836,14 @@ const en_trainings = [
   "<strong>Apr 18–22, 2022:</strong> IP Transport Evolution",
   "<strong>Apr 4–8, 2022:</strong> Flask Framework",
   "<strong>Mar 15–16, 2022:</strong> Data Analysis & Visualization",
-  "<strong>Mar 14–18, 2022:</strong> IMS Network Evolution",
-  "<strong>Feb 21–23, 2022:</strong> Linux OS",
+  "<strong>Mar 14–18, 2022:</strong> IMS Network",
+  "<strong>Feb 21–23, 2022:</strong> Linux Operating System",
   "<strong>Nov 22–26, 2021:</strong> C# Training",
   "<strong>Nov 8–20, 2021:</strong> Python Basics",
   "<strong>Nov 22–27, 2021:</strong> VMWare",
   "<strong>Nov 11–15, 2021:</strong> Network Security",
   "<strong>Nov 1–6, 2021:</strong> Python Testing",
-  "<strong>May 10–12, 2021:</strong> QEMU/KVM",
+  "<strong>May 10–12, 2021:</strong> QEMU/VIRT-MANAGER/KVM",
   "<strong>Oct 4–7, 2021:</strong> Shell Scripting",
   "<strong>Apr 12–17, 2021:</strong> Odoo 15 Server Configuration",
   "<strong>Mar 1–5, 2021:</strong> IP/MPLS Fundamentals",
@@ -697,9 +861,9 @@ function setLang(lang) {
   document.documentElement.setAttribute("lang", lang);
 
   const fr = {
-   role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
+    role: "Formateur Professionnel | Expert en Réseaux, Cloud & Développement",
     summary_title: "RÉSUMÉ DE MON EXPÉRIENCE EN TANT QUE FORMATEUR",
-    summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J’ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...), auprès de publics techniques variés : ingénieurs, administrateurs systèmes, développeurs, gestionnaires de maintenance.<br/>Mon approche pédagogique allie théorie et pratique, avec un accent mis sur les projets concrets, les cas réels et l’autonomie technique.",
+    summary_text: "Avec plus de <strong>7 ans d'expérience professionnelle</strong>, je suis un formateur expert spécialisé dans les domaines du <strong>développement Python</strong>, les <strong>systèmes Linux</strong>, la <strong>virtualisation</strong>, le <strong>Cloud Computing</strong>, ainsi que les outils ERP comme <strong>Odoo</strong>, <strong>Coupa</strong> et <strong>J@de</strong>.<br/>J'ai animé plus de <strong>150 formations certifiantes</strong> dans divers pays (France, Tunisie, Mali, Allemagne...).<br/>Mon approche pédagogique allie théorie et pratique.",
     cloud_title: "☁️ Expertise en Cloud Computing",
     security_title: "🔐 Expertise en Sécurité Réseau",
     monitoring_title: "📊 Expertise en Monitoring",
@@ -727,9 +891,9 @@ function setLang(lang) {
   };
 
   const en = {
-     role: "Professional Trainer | Network, Cloud & Development Expert",
+    role: "Professional Trainer | Network, Cloud & Development Expert",
     summary_title: "PROFESSIONAL TRAINING EXPERIENCE",
-    summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, and <strong>Cloud Computing</strong>, and ERP tools such as <strong>Odoo</strong>, <strong>Coupa</strong>, and <strong>J@de</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries for technical audiences including engineers, system administrators, developers, and maintenance managers.<br/>My pedagogical approach combines theory and practice.",
+    summary_text: "With over <strong>7 years of professional experience</strong>, I am an expert trainer in <strong>Python development</strong>, <strong>Linux systems</strong>, <strong>Virtualization</strong>, and <strong>Cloud Computing</strong>.<br/>I have delivered more than <strong>150 certified training sessions</strong> across various countries.<br/>My approach combines theory and hands-on learning.",
     cloud_title: "☁️ Cloud Computing Expertise",
     security_title: "🔐 Network Security Expertise",
     monitoring_title: "📊 Monitoring Expertise",
@@ -758,7 +922,7 @@ function setLang(lang) {
 
   const t = lang === 'fr' ? fr : en;
 
-  // Met à jour les textes
+  // Met à jour texte
   document.getElementById("role").innerText = t.role;
   document.getElementById("summary-title").innerText = t.summary_title;
   document.getElementById("summary-text").innerHTML = t.summary_text;
@@ -779,44 +943,51 @@ function setLang(lang) {
   document.getElementById("docs-title").innerText = t.docs_title;
   document.getElementById("chatbot-text").innerText = t.chatbot_text;
 
-  // Met à jour le menu de navigation
-  document.querySelector("#nav-summary").innerText = t.nav_summary;
-  document.querySelector("#nav-expertise").innerText = t.nav_expertise;
-  document.querySelector("#nav-trainings").innerText = t.nav_trainings;
-  document.querySelector("#nav-videos").innerText = t.nav_videos;
-  document.querySelector("#nav-docs").innerText = t.nav_docs;
-  document.querySelector("#nav-calendar").innerText = t.nav_calendar;
-  document.querySelector("#nav-contact").innerText = t.nav_contact;
+  // Met à jour le menu latéral
+  document.querySelector("#nav-title").innerText = t.nav_title;
+  document.querySelector(".nav-summary").innerText = t.nav_summary;
+  document.querySelector(".nav-expertise").innerText = t.nav_expertise;
+  document.querySelector(".nav-trainings").innerText = t.nav_trainings;
+  document.querySelector(".nav-videos").innerText = t.nav_videos;
+  document.querySelector(".nav-docs").innerText = t.nav_docs;
+  document.querySelector(".nav-calendar").innerText = t.nav_calendar;
+  document.querySelector(".nav-contact").innerText = t.nav_contact;
 
   // Met à jour les formations
   updateTrainingsList(lang === 'fr' ? fr_trainings : en_trainings);
 
-  // Boutons FR/EN
+  // Active boutons FR/EN
   document.getElementById("btn-fr").className = lang === 'fr' ? 'active' : '';
   document.getElementById("btn-en").className = lang === 'en' ? 'active' : '';
 }
 
 function updateTrainingsList(trainings) {
-  const list = document.getElementById("trainings-list");
-  list.innerHTML = "";
+  const trainingsList = document.getElementById("trainings-list");
+  trainingsList.innerHTML = "";
   trainings.forEach(item => {
     const li = document.createElement("li");
     li.innerHTML = item;
-    list.appendChild(li);
+    trainingsList.appendChild(li);
   });
 }
 
 function filterTrainings() {
   const filter = document.getElementById("filterInput").value.trim().toLowerCase();
-  const list = document.getElementById("trainings-list");
-  const allTrainings = document.documentElement.lang === 'fr' ? fr_trainings : en_trainings;
-  list.innerHTML = "";
-  allTrainings.filter(item => item.toLowerCase().includes(filter)).forEach(item => {
+  const trainings = document.documentElement.lang === 'fr' ? fr_trainings : en_trainings;
+  const filtered = trainings.filter(item => item.toLowerCase().includes(filter));
+  const trainingsList = document.getElementById("trainings-list");
+  trainingsList.innerHTML = "";
+  filtered.forEach(item => {
     const li = document.createElement("li");
     li.innerHTML = item;
-    list.appendChild(li);
+    trainingsList.appendChild(li);
   });
 }
+
+// Navigation barre latérale multilingue
+document.querySelectorAll("a[href^='#']");
+
+window.onload = () => setLang(document.documentElement.lang || 'fr');
 
 // Chatbot
 function toggleChat() {
@@ -824,21 +995,22 @@ function toggleChat() {
   panel.style.display = panel.style.display === "flex" ? "none" : "flex";
 }
 function sendMessage() {
-  const msg = document.getElementById("userInput").value.trim();
-  if (!msg) return;
-  addMessage(msg, "user");
-  setTimeout(() => addMessage(getBotReply(msg), "bot"), 500);
-  document.getElementById("userInput").value = "";
+  const input = document.getElementById("userInput");
+  const message = input.value.trim();
+  if (!message) return;
+  addMessage(message, "user");
+  setTimeout(() => addMessage(getBotReply(message), "bot"), 500);
+  input.value = "";
 }
 function handleKeyPress(e) {
   if (e.key === "Enter") sendMessage();
 }
 function addMessage(text, sender) {
   const body = document.getElementById("chat-body");
-  const el = document.createElement("div");
-  el.className = "message " + (sender === "user" ? "user-message" : "bot-message");
-  el.textContent = text;
-  body.appendChild(el);
+  const msg = document.createElement("div");
+  msg.className = "message " + (sender === "user" ? "user-message" : "bot-message");
+  msg.textContent = text;
+  body.appendChild(msg);
   body.scrollTop = body.scrollHeight;
 }
 function getBotReply(q) {
@@ -846,25 +1018,23 @@ function getBotReply(q) {
   if (q.includes("email") || q.includes("contact")) {
     return "Vous pouvez me contacter à malloukinasreddine@gmail.com ou via LinkedIn.";
   } else if (q.includes("formation") || q.includes("training")) {
-    return "J'ai animé plus de 150 formations certifiantes en Python, Linux, Ansible, Azure, Fortinet, Centreon...";
+    return "J'ai animé plus de 150 formations certifiantes en Python, Linux, Ansible, Azure, Fortinet...";
   } else if (q.includes("langue") || q.includes("language")) {
-    return "Utilisez les boutons FR / EN pour changer de langue.";
+    return "Utilisez les boutons FR / EN ci-dessus.";
   } else if (q.includes("disponible") || q.includes("available")) {
     return "Consultez mon calendrier intégré ou envoyez-moi un email.";
   } else if (q.includes("python")) {
-    return "Oui, je suis formateur Python certifié avec plusieurs années d’expérience.";
+    return "Formation Python certifiante avec projet concret.";
   } else if (q.includes("cv")) {
-    return "Mon CV est disponible ici. Version PDF/Word sur demande.";
-  } else if (q.includes("hello") || q.includes("hi")) {
-    return "Hello! How can I help you today?";
-  } else if (q.includes("thank")) {
-    return "You're welcome!";
+    return "Mon CV est disponible ici. Version PDF sur demande.";
+  } else if (q.includes("hello") || q.includes("bonjour")) {
+    return "Bonjour ! Comment puis-je vous aider ?";
+  } else if (q.includes("merci") || q.includes("thank")) {
+    return "Merci pour votre question. Pour une réponse personnalisée, veuillez m’envoyer un email à malloukinasreddine@gmail.com.";
   } else {
     return "Merci pour votre question. Pour une réponse personnalisée, veuillez m’envoyer un email à malloukinasreddine@gmail.com.";
   }
 }
-
-window.onload = () => setLang(document.documentElement.lang || 'fr');
 </script>
 </body>
 </html>
