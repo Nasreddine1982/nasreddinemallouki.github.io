@@ -708,7 +708,16 @@
       document.querySelector("#nav-docs").innerText = t.nav_docs;
       document.querySelector("#nav-calendar").innerText = t.nav_calendar;
       document.querySelector("#nav-qrcode").innerText = t.nav_qrcode;
+ // Mise à jour des formations
+  const trainingsList = document.getElementById("trainings-list");
+  trainingsList.innerHTML = ""; // Vider la liste actuelle
 
+  const trainings = lang === 'fr' ? fr_trainings : en_trainings;
+  trainings.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = item;
+    trainingsList.appendChild(li);
+  });
       // Update language switcher
       document.getElementById("btn-fr").className = lang === 'fr' ? 'active' : '';
       document.getElementById("btn-en").className = lang === 'en' ? 'active' : '';
