@@ -420,8 +420,6 @@
 <!-- Google Translate Widget -->
 <div id="google_translate_element"></div>
 
-<!-- Bouton Thème Sombre/Clair -->
-<button onclick="toggleTheme()" class="theme-toggle">🌙</button>
 
 <!-- Barre latérale -->
 <nav class="sidebar">
@@ -438,8 +436,9 @@
 </nav>
 
 <!-- Contenu principal -->
-<div class="main-content">
+  <div class="main-content">
   <header>
+    <button onclick="toggleTheme()" class="theme-toggle">🌙</button>
     <div class="lang-switch">
       <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
       <button onclick="setLang('en')" id="btn-en">EN</button>
